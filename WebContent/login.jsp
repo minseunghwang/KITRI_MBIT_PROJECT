@@ -73,7 +73,7 @@
 								value="로그인"
 								style="background-color: #2e435a; border-color: #2e435a";>
 						</form>
-						<form method="post" action="loginAction.jsp">
+						<form method="post" action="join.jsp">
 							<input type="submit" class="btn btn-primary form-control"
 								value="회원가입"
 								style="background-color: #2e435a; border-color: #2e435a; margin-top: 10px";>
