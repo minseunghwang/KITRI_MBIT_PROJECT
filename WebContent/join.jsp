@@ -106,7 +106,7 @@
 
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="사진"
-									name="u_img" maxlength="20">
+									name="u_img" maxlength="500">
 							</div>
 							<input type="submit" class="btn btn-primary form-control"
 								value="회원가입">
