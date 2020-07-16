@@ -24,7 +24,8 @@
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+		style="background-color: #52030b !important">
 		<div class="container">
 			<a class="navbar-brand" href="#">Start Bootstrap</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -49,18 +50,17 @@
 
 	<!-- Page Content -->
 	<div class="container">
-		<div class="row" style="position: relative;top: 100px;">
-			<div class="col-lg-1">
-			</div>
+		<div class="row" style="position: relative; top: 100px;">
+			<div class="col-lg-1"></div>
 			<!-- /.col-lg-3 -->
 
 			<div class="col-lg-9" style="text-align: center";>
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel" style="text-align: -webkit-center;">
-					
+
 					<div class="card-body col-lg-5">
 						<form method="post" action="loginAction.jsp">
-							<h3 style="text-align: center;">로그인 화면</h3>
+							<h3 style="text-align: center;">로그인</h3>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="아이디"
 									name="u_id" maxlength="20">
@@ -69,16 +69,22 @@
 								<input type="password" class="form-control" placeholder="비밀번호"
 									name="u_pw" maxlength="20">
 							</div>
-							<input type="submit" class="btn btn-primary form-control" value="로그인" style="background-color: #4c76a0; border-color: #343a40";>
+							<input type="submit" class="btn btn-primary form-control"
+								value="로그인"
+								style="background-color: #2e435a; border-color: #2e435a";>
+						</form>
+						<form method="post" action="loginAction.jsp">
+							<input type="submit" class="btn btn-primary form-control"
+								value="회원가입"
+								style="background-color: #2e435a; border-color: #2e435a; margin-top: 10px";>
 						</form>
 					</div>
-					
+
 				</div>
 			</div>
 			<!-- /.col-lg-9 -->
 
-			<div class="col-lg-1">
-			</div>
+			<div class="col-lg-1"></div>
 		</div>
 		<!-- /.row -->
 

@@ -49,7 +49,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				<h1 class="my-4">My page</h1>
+				<h1 class="my-4">님의 페이지입니다.</h1>
 			</div>
 			<!-- /.col-lg-3 -->
 
