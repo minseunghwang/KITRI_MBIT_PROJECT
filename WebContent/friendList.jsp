@@ -23,11 +23,11 @@
 <!-- Custom styles for this template -->
 <link href="./Resource/css/shop-homepage.css" rel="stylesheet">
 
-<script src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		var index = $("#selectBox option:selected").val();
-		alert(index);	
+		alert(index);
 	})
 </script>
 </head>
@@ -119,8 +119,7 @@
 					%>
 					<%=session.getAttribute("u_id")%>
 					님 (<%=session.getAttribute("u_mbti")%>) 성향의 궁합입니다.
-					<select
-						name="selectBox" id="selectBox" style="margin-left: 20px" id="filterText">
+					<select name="selectBox" id="selectBox" style="margin-left: 20px" id="filterText">
 						<option value="s5" selected class="text-muted">&#9733;
 							&#9733; &#9733; &#9733; &#9733;</option>
 						<option value="s4" class="text-muted">&#9734 &#9733
@@ -133,7 +132,7 @@
 							&#9734 &#9734 &#9733</option>
 					</select>
 				</div>
-
+				
 
 				<div class="row finterUL">
 					<%
