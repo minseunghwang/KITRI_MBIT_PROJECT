@@ -32,8 +32,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="index.jsp">Home
-							<span class="sr-only">(current)</span>
+					<li class="nav-item active"><a class="nav-link"
+						href="index.jsp">Home <span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">About</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Services</a>
@@ -49,7 +49,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				<h1 class="my-4">님의 페이지입니다.</h1>
+				<h1 class="my-4"><%=session.getAttribute("u_id")%>님의 페이지입니다.
+				</h1>
 			</div>
 			<!-- /.col-lg-3 -->
 
@@ -58,32 +59,35 @@
 					data-ride="carousel">
 					<%
 						User2DAO user2DAO = new User2DAO();
-						ArrayList<User2> list = user2DAO.getList();
-						for (int i = 0; i < list.size(); i++) {
+					ArrayList<User2> list = user2DAO.getUserinfo((String) session.getAttribute("u_id"));
 					%>
 					<div class="card-body">
 						<h4 class="card-title">
-							<%
-								if (list.get(i).getU_gender() == "female") {
-							%>
-							<p class="card-text">남</p>
-							<%
-								} else if (list.get(i).getU_gender() == "male") {
-							%>
-							<p class="card-text">여</p>
-							<%
-								}
-							%>
-							<a href="userInfo.jsp"><%=list.get(i).getU_name()%></a>(<%=list.get(i).getU_age()%>)
+
+							<p><%=list.get(0).getU_name()%></a>(<%=list.get(0).getU_age()%>)
+							
 						</h4>
-						<h5><%=list.get(i).getU_loc()%></h5>
-						<p class="card-text"><%=list.get(i).getU_hobby()%></p>
-						<p class="card-text"><%=list.get(i).getU_talent()%></p>
-						<p class="card-text"><%=list.get(i).getU_mbti()%></p>	
+						<h5><%=list.get(0).getU_loc()%></h5>
+
+						<p class="card-text"><%=list.get(0).getU_hobby()%></p>
+						<p class="card-text"><%=list.get(0).getU_talent()%></p>
+						<%
+							if ((String) list.get(0).getU_gender() == "female") {
+						%>
+						아오
+						<p class="card-text">남</p>
+						<%
+							} else if ((String) list.get(0).getU_gender() == "male") {
+						%>
+						왜안돼
+						<p class="card-text">여</p>
+						<%
+							}
+						%>
+						<p class="card-text"><%=list.get(0).getU_mbti()%></p>
+						<p class="card-text"><%=list.get(0).getU_gender()%></p>
+
 					</div>
-					<%
-						}
-					%>
 				</div>
 
 
