@@ -79,6 +79,7 @@
 					<%
 					while(rs.next())
 					{
+						String writerId = rs.getString("u_id");
 					%>
 					<tr>
 						<td>제목</td>
@@ -86,7 +87,7 @@
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td><%= rs.getString("u_id")%></td>
+						<td><%= writerId%></td>
 						<td>작성일</td>
 						<td><%= rs.getString("b_date")%></td>
 						<td>조회수</td>
@@ -96,23 +97,23 @@
 						<td><%= rs.getString("b_content")%></td>
 					</tr>
 				</tbody>
-				<%
+				
+
+			</table>
+				<button type="button" class="btn btn-primary" onclick="location.href='list.jsp'">목록</button>
+				<%if(writerId.equals(session.getAttribute("u_id"))) { %>
+					<button type="button" class="btn btn-primary" onclick="location.href='modify.jsp?no=<%=b_no%>'">수정</button>
+	                <button type="button" class="btn btn-primary" onclick="location.href='delete.jsp?no=<%=b_no%>'">삭제</button>
+				<%} %>
+		</div>
+		<%
 				}
-					conn.close();
 				} catch(Exception e) {
 					out.println("Oracle Database Connection Problem <hr>");
 					out.println(e.getMessage());
 					e.printStackTrace();
 				}
 				%>
-
-			</table>
-				<button type="button" class="btn btn-primary" onclick="location.href='list.jsp'">목록</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='modify.jsp?no=<%=b_no%>'">수정</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='delete.jsp?no=<%=b_no%>'">삭제</button>
-		</div>
-
-		
 	</div>
 	<!-- /.container -->
 

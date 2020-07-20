@@ -101,7 +101,6 @@
 			</tbody>
 		</table>
 		<%
-					conn.close();
 					} catch(Exception e) {
 						out.println("Oracle Database Connection Problem <hr>");
 						out.println(e.getMessage());
