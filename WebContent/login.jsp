@@ -23,6 +23,14 @@
 <link href="./Resource/css/shop-homepage.css" rel="stylesheet">
 </head>
 <body>
+	<%
+		if (session.getAttribute("u_id") != null) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("location.href = 'friendList.jsp'");
+		script.println("</script>");
+	}
+	%>
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		style="background-color: #52030b !important">

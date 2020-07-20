@@ -24,14 +24,24 @@
 <link href="./Resource/css/shop-homepage.css" rel="stylesheet">
 
 <script language="javascript">
-
-var selectBox = document.getElementById("selectBox");
-var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-alert(selectedValue);
+	var selectBox = document.getElementById("selectBox");
+	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+	alert(selectedValue);
 </script>
+
 
 </head>
 <body>
+	<%
+	if (session.getAttribute("u_id") == null) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("location.href = 'login.jsp'");
+		script.println("alert('로그인 해주세요.')");
+		script.println("</script>");
+	}
+	%>
+
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
@@ -123,19 +133,18 @@ alert(selectedValue);
 				<div
 					style="text-align: center; margin-top: 50px; margin-bottom: 60px;">
 					<%=session.getAttribute("u_id")%>
-					님 (<%=session.getAttribute("u_mbti")%>) 성향의 궁합입니다.
-					<select
+					님 (<%=session.getAttribute("u_mbti")%>) 성향의 궁합입니다. <select
 						name="selectBox" id="selectBox" style="margin-left: 20px">
 						<option value="s5" selected class="text-muted">&#9733;
 							&#9733; &#9733; &#9733; &#9733;</option>
-						<option value="s4" class="text-muted">&#9734
-							&#9733 &#9733 &#9733 &#9733</option>
-						<option value="s3" class="text-muted">&#9734
-							&#9734 &#9733 &#9733 &#9733</option>
-						<option value="s2" class="text-muted">&#9734
-							&#9734 &#9734 &#9733 &#9733</option>
-						<option value="s1" class="text-muted"">&#9734
-							&#9734 &#9734 &#9734 &#9733</option>
+						<option value="s4" class="text-muted">&#9734 &#9733
+							&#9733 &#9733 &#9733</option>
+						<option value="s3" class="text-muted">&#9734 &#9734
+							&#9733 &#9733 &#9733</option>
+						<option value="s2" class="text-muted">&#9734 &#9734
+							&#9734 &#9733 &#9733</option>
+						<option value="s1" class="text-muted"">&#9734 &#9734
+							&#9734 &#9734 &#9733</option>
 					</select>
 				</div>
 
@@ -153,7 +162,12 @@ alert(selectedValue);
 								height="200px	"></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="userInfo.jsp"><%=list.get(i).getU_name()%></a>(<%=list.get(i).getU_age()%>)
+									<%
+										String u_id = list.get(i).getU_id();
+									%>
+
+									<a href="userInfo.jsp?u_id=<%=u_id%>"> <%=list.get(i).getU_name()%>
+									</a>(<%=list.get(i).getU_age()%>)
 								</h4>
 								<h5><%=list.get(i).getU_loc()%></h5>
 								<p class="card-text"><%=list.get(i).getU_hobby()%></p>
