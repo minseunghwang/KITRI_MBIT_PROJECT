@@ -60,6 +60,8 @@
 					<div class="card-body col-lg-5">
 						<form method="post" action="joinAction.jsp">
 							<h3 style="text-align: center;">회원가입 화면</h3>
+							
+							
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="아이디"
 									name="u_id" maxlength="20">
@@ -88,15 +90,15 @@
 									name="u_age" maxlength="20">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="주소"
+								<input type="text" class="form-control" placeholder="주소 ex)서울시 서초구, 강원도 강릉시"
 									name="u_loc" maxlength="20">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="취미"
+								<input type="text" class="form-control" placeholder="취미 ex)자전거타기"
 									name="u_hobby" maxlength="20">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="특기"
+								<input type="text" class="form-control" placeholder="특기 ex)요리, 축구"
 									name="u_talent" maxlength="20">
 							</div>
 							<div class="form-group">
@@ -108,6 +110,8 @@
 								<input type="text" class="form-control" placeholder="사진"
 									name="u_img" maxlength="500">
 							</div>
+							
+							
 							<input type="submit" class="btn btn-primary form-control"
 								value="회원가입">
 						</form>
@@ -122,6 +126,10 @@
 		<!-- /.row -->
 
 	</div>
+	
+	
+	
+	
 	<!-- /.container -->
 
 	<!-- Footer -->

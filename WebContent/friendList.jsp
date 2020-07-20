@@ -54,8 +54,8 @@
 			<div class="col-lg-3">
 				<h1 class="my-4">Shop Name</h1>
 				<div class="list-group">
-					<a href="#" class="list-group-item">게시판</a> <a href="#"
-						class="list-group-item">마이페이지(수정)</a>
+					<a href="#" class="list-group-item">게시판</a> 
+					<a href="mypage.jsp" class="list-group-item">마이페이지(수정)</a>
 
 					<%
 						String u_mbti = null;
@@ -157,7 +157,7 @@
 									<%=list.get(i).getU_mbti()%></div>
 								<div style="float: right">
 									<small class="text-muted">&#9733; &#9733; &#9733;
-										&#9733; &#9734; </small>
+										&#9733; &#734; </small>
 								</div>
 							</div>
 						</div>

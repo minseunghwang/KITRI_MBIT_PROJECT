@@ -17,7 +17,7 @@ public class User2DAO {
 		String DB_USER = "c##team4";
 		String DB_PASSWORD = "min";
 		
-		// 드라이버 로드
+		// �뱶�씪�씠踰� 濡쒕뱶
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
@@ -65,16 +65,16 @@ public class User2DAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				if(rs.getString(1).equals(userPassword)) {
-					return 1;		// 로그인 성공
+					return 1;		// 濡쒓렇�씤 �꽦怨�
 				}
 				else
-					return 0;		// 비밀번호 불일치
+					return 0;		// 鍮꾨�踰덊샇 遺덉씪移�
 			}
-			return -1;		// 아이디가 없음
+			return -1;		// �븘�씠�뵒媛� �뾾�쓬
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -2;		// 데이터베이스 오류
+		return -2;		// �뜲�씠�꽣踰좎씠�뒪 �삤瑜�
 	}
 	
 	public int join(User2 user) {
@@ -98,4 +98,40 @@ public class User2DAO {
 		}
 		return -1;
 	}
+	
+	public User2 getUser(String u_id) {
+		User2 user = new User2();
+		
+		 Connection conn;
+		 PreparedStatement pstmt;
+		 ResultSet rs;
+
+		String sql = "select u_no, u_id, u_pw, u_name, u_gender, u_age, u_loc, u_hobby, u_talent, u_mbti, u_like, UTL_RAW.CAST_TO_VARCHAR2(u_img) from user_info";
+		try {
+			conn = DriverManager.getConnection(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,u_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				
+				user.setU_id(u_id);
+				user.setU_pw(rs.getString("u_pw"));
+				user.setU_name(rs.getString("u_name"));
+				user.setU_gender(rs.getString("u_gender"));
+				user.setU_age(rs.getInt("u_age"));
+				user.setU_loc(rs.getString("u_loc"));
+				user.setU_hobby(rs.getString("u_hobby"));
+				user.setU_talent(rs.getString("u_talent"));
+	
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+
+	return user;
+		
+		
+	}
+	
+
 }
