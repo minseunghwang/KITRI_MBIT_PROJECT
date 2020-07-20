@@ -132,4 +132,29 @@ public class User2DAO {
 
 		return list;
 	}
+	
+	
+	public int profile(String userID, String u_img) {
+		String SQL = "UPDATE USER SET u_img=? WHERE u_id=? ";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userID);
+			pstmt.setString(2, u_img);
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return -1;
+	}
+	
+
+	
+	
 }
