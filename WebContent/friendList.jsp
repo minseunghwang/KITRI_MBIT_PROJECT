@@ -23,15 +23,17 @@
 <!-- Custom styles for this template -->
 <link href="./Resource/css/shop-homepage.css" rel="stylesheet">
 
-<script language="javascript">
-
-var selectBox = document.getElementById("selectBox");
-var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-alert(selectedValue);
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var index = $("#selectBox option:selected").val();
+		alert(index);
+	})
 </script>
-
 </head>
 <body>
+
+
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
@@ -77,7 +79,6 @@ alert(selectedValue);
 					<%
 						}
 					%>
-
 				</div>
 			</div>
 			<!-- /.col-lg-3 -->
@@ -122,28 +123,30 @@ alert(selectedValue);
 
 				<div
 					style="text-align: center; margin-top: 50px; margin-bottom: 60px;">
+			
+					
 					<%=session.getAttribute("u_id")%>
 					님 (<%=session.getAttribute("u_mbti")%>) 성향의 궁합입니다.
-					<select
-						name="selectBox" id="selectBox" style="margin-left: 20px">
+					<select name="selectBox" id="selectBox" style="margin-left: 20px" id="filterText">
 						<option value="s5" selected class="text-muted">&#9733;
 							&#9733; &#9733; &#9733; &#9733;</option>
-						<option value="s4" class="text-muted">&#9734
-							&#9733 &#9733 &#9733 &#9733</option>
-						<option value="s3" class="text-muted">&#9734
-							&#9734 &#9733 &#9733 &#9733</option>
-						<option value="s2" class="text-muted">&#9734
-							&#9734 &#9734 &#9733 &#9733</option>
-						<option value="s1" class="text-muted"">&#9734
-							&#9734 &#9734 &#9734 &#9733</option>
+						<option value="s4" class="text-muted">&#9734 &#9733
+							&#9733 &#9733 &#9733</option>
+						<option value="s3" class="text-muted">&#9734 &#9734
+							&#9733 &#9733 &#9733</option>
+						<option value="s2" class="text-muted">&#9734 &#9734
+							&#9734 &#9733 &#9733</option>
+						<option value="s1" class="text-muted">&#9734 &#9734
+							&#9734 &#9734 &#9733</option>
 					</select>
 				</div>
+				
 
-
-				<div class="row">
+				<div class="row finterUL">
 					<%
 						User2DAO user2DAO = new User2DAO();
 					ArrayList<User2> list = user2DAO.getList();
+
 					for (int i = 0; i < list.size(); i++) {
 					%>
 					<div class="col-lg-4 col-md-6 mb-4">
@@ -153,7 +156,12 @@ alert(selectedValue);
 								height="200px	"></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="userInfo.jsp"><%=list.get(i).getU_name()%></a>(<%=list.get(i).getU_age()%>)
+									<%
+										String u_id = list.get(i).getU_id();
+									%>
+
+									<a href="userInfo.jsp?u_id=<%=u_id %>"> <%=list.get(i).getU_name()%>
+									</a>(<%=list.get(i).getU_age()%>)
 								</h4>
 								<h5><%=list.get(i).getU_loc()%></h5>
 								<p class="card-text"><%=list.get(i).getU_hobby()%></p>

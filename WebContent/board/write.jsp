@@ -4,6 +4,7 @@
 <%@ page import="user.User2DAO"%>
 <%@ page import="user.User2"%>
 <%@ page import="java.util.ArrayList"%>
+<%@page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,26 +15,19 @@
 <meta name="author" content="">
 
 
-<title>Login!!!</title>
+<title>Board</title>
 
 <!-- Bootstrap core CSS -->
-<link href="./Resource/css/bootstrap.min.css" rel="stylesheet">
+<link href="../Resource/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="./Resource/css/shop-homepage.css" rel="stylesheet">
+<link href="../Resource/css/shop-homepage.css" rel="stylesheet">
+
+
 </head>
 <body>
-	<%
-		if (session.getAttribute("u_id") != null) {
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("location.href = 'friendList.jsp'");
-		script.println("</script>");
-	}
-	%>
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-		style="background-color: #52030b !important">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="#">Start Bootstrap</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -44,7 +38,7 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a class="nav-link"
-						href="index.jsp">Home <span class="sr-only">(current)</span>
+						href="/Project_test/index.jsp">Home <span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">About</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Services</a>
@@ -58,44 +52,17 @@
 
 	<!-- Page Content -->
 	<div class="container">
-		<div class="row" style="position: relative; top: 100px;">
-			<div class="col-lg-1"></div>
-			<!-- /.col-lg-3 -->
-
-			<div class="col-lg-9" style="text-align: center";>
-				<div id="carouselExampleIndicators" class="carousel slide my-4"
-					data-ride="carousel" style="text-align: -webkit-center;">
-
-					<div class="card-body col-lg-5">
-						<form method="post" action="loginAction.jsp">
-							<h3 style="text-align: center;">로그인</h3>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="아이디"
-									name="u_id" maxlength="20">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" placeholder="비밀번호"
-									name="u_pw" maxlength="20">
-							</div>
-							<input type="submit" class="btn btn-primary form-control"
-								value="로그인"
-								style="background-color: #2e435a; border-color: #2e435a";>
-						</form>
-						<form method="post" action="join.jsp">
-							<input type="submit" class="btn btn-primary form-control"
-								value="회원가입"
-								style="background-color: #2e435a; border-color: #2e435a; margin-top: 10px";>
-						</form>
-					</div>
-
-				</div>
+		<form class="form-horizontal" action="boardInsert.jsp" method="post">
+			<div class="form-group">
+				<label class="control-label">제목</label> 
+				<input class="form-control"	id="title" name="title" type="text" placeholder="제목을 입력하세요">
+				
+				<label class="control-label">내용</label> 
+				<textarea class="form-control" rows="10" name="content" placeholder="내용을 입력하세요"></textarea>
+				<input type="hidden" name="id" value="<%=session.getAttribute("u_id") %>">
 			</div>
-			<!-- /.col-lg-9 -->
-
-			<div class="col-lg-1"></div>
-		</div>
-		<!-- /.row -->
-
+			<button type="submit" class="btn btn-danger">등록</button>
+		</form>
 	</div>
 	<!-- /.container -->
 

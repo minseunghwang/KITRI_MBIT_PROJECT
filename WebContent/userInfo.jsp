@@ -21,6 +21,15 @@
 <link href="./Resource/css/shop-homepage.css" rel="stylesheet">
 </head>
 <body>
+	<%
+		if (session.getAttribute("u_id") == null) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("location.href = 'login.jsp'");
+		script.println("alert('로그인 해주세요.')");
+		script.println("</script>");
+	}
+	%>
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
@@ -49,7 +58,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				<h1 class="my-4"><%=session.getAttribute("u_id")%>님의 페이지입니다.
+				<%
+					String u_id = request.getParameter("u_id");
+				%>
+				<h1 class="my-4"><%=u_id%>님의 페이지입니다.
 				</h1>
 			</div>
 			<!-- /.col-lg-3 -->
@@ -59,34 +71,32 @@
 					data-ride="carousel">
 					<%
 						User2DAO user2DAO = new User2DAO();
-					ArrayList<User2> list = user2DAO.getUserinfo((String) session.getAttribute("u_id"));
+					ArrayList<User2> list = user2DAO.getUserinfo(u_id);
 					%>
 					<div class="card-body">
 						<h4 class="card-title">
-
-							<p><%=list.get(0).getU_name()%></a>(<%=list.get(0).getU_age()%>)
-							
+							<img class="card-img-top" src="<%=list.get(0).getU_img()%>">
+							<p>
+							<%=list.get(0).getU_name().trim()%>
+							(<%=list.get(0).getU_age()%>)
+							<%
+								String p_gender = (String) list.get(0).getU_gender().trim();
+							if ("여자".equals(p_gender)) {
+							%>
+							♀
+								<%
+								} else if ("남자".equals(p_gender)) {
+							%>
+							♂
+							<%
+								}
+							%>
 						</h4>
-						<h5><%=list.get(0).getU_loc()%></h5>
-
+						<p class="card-text"><%=list.get(0).getU_loc()%></p>
 						<p class="card-text"><%=list.get(0).getU_hobby()%></p>
 						<p class="card-text"><%=list.get(0).getU_talent()%></p>
-						<%
-							if ((String) list.get(0).getU_gender() == "female") {
-						%>
-						아오
-						<p class="card-text">남</p>
-						<%
-							} else if ((String) list.get(0).getU_gender() == "male") {
-						%>
-						왜안돼
-						<p class="card-text">여</p>
-						<%
-							}
-						%>
 						<p class="card-text"><%=list.get(0).getU_mbti()%></p>
 						<p class="card-text"><%=list.get(0).getU_gender()%></p>
-
 					</div>
 				</div>
 
