@@ -22,6 +22,14 @@
 
 <!-- Custom styles for this template -->
 <link href="./Resource/css/shop-homepage.css" rel="stylesheet">
+
+<script language="javascript">
+
+var selectBox = document.getElementById("selectBox");
+var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+alert(selectedValue);
+</script>
+
 </head>
 <body>
 	<!-- Navigation -->
@@ -112,23 +120,22 @@
 					</a>
 				</div>
 
-
 				<div
 					style="text-align: center; margin-top: 50px; margin-bottom: 60px;">
 					<%=session.getAttribute("u_id")%>
-					님 (
-					<%=session.getAttribute("u_mbti")%>) 성향의 궁합입니다. <select
+					님 (<%=session.getAttribute("u_mbti")%>) 성향의 궁합입니다.
+					<select
 						name="selectBox" id="selectBox" style="margin-left: 20px">
 						<option value="s5" selected class="text-muted">&#9733;
 							&#9733; &#9733; &#9733; &#9733;</option>
-						<option value="s4" class="text-muted">&#9734 &#9733
-							&#9733 &#9733 &#9733</option>
-						<option value="s3" class="text-muted">&#9734 &#9734
-							&#9733 &#9733 &#9733</option>
-						<option value="s2" class="text-muted">&#9734 &#9734
-							&#9734 &#9733 &#9733</option>
-						<option value="s1" class="text-muted">&#9734 &#9734
-							&#9734 &#9734 &#9733</option>
+						<option value="s4" class="text-muted">&#9734
+							&#9733 &#9733 &#9733 &#9733</option>
+						<option value="s3" class="text-muted">&#9734
+							&#9734 &#9733 &#9733 &#9733</option>
+						<option value="s2" class="text-muted">&#9734
+							&#9734 &#9734 &#9733 &#9733</option>
+						<option value="s1" class="text-muted"">&#9734
+							&#9734 &#9734 &#9734 &#9733</option>
 					</select>
 				</div>
 
@@ -189,6 +196,5 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>
 	<script src="./Resource/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
