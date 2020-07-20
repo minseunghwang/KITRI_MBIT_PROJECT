@@ -41,7 +41,7 @@
 			script.println("alert('입력이 안 된 사항이 있습니다.')");
 			script.println("history.back()");
 			script.println("</script>");
-		}else{
+		} else{
 			User2DAO userDAO = new User2DAO();
 			int result = userDAO.join(user);
 			if(result == -1){
@@ -59,8 +59,6 @@
 				script.println("</script>");
 			}
 		}
-		
-		
 	%>
 </body>
 </html>

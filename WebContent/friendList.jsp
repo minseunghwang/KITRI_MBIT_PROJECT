@@ -23,24 +23,16 @@
 <!-- Custom styles for this template -->
 <link href="./Resource/css/shop-homepage.css" rel="stylesheet">
 
-<script language="javascript">
-	var selectBox = document.getElementById("selectBox");
-	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-	alert(selectedValue);
+<script src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var index = $("#selectBox option:selected").val();
+		alert(index);	
+	})
 </script>
-
-
 </head>
 <body>
-	<%
-	if (session.getAttribute("u_id") == null) {
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("location.href = 'login.jsp'");
-		script.println("alert('로그인 해주세요.')");
-		script.println("</script>");
-	}
-	%>
+
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -74,20 +66,6 @@
 				<div class="list-group">
 					<a href="#" class="list-group-item">게시판</a> <a href="#"
 						class="list-group-item">마이페이지(수정)</a>
-
-					<%
-						String u_mbti = null;
-					RelationDAO rel = new RelationDAO();
-					ArrayList<Relation> list2 = rel.get_RList((String) session.getAttribute("u_id"));
-					session.setAttribute("u_mbti", list2.get(0).getR_type1());
-					for (int i = 0; i < list2.size(); i++) {
-					%>
-					<a href="#" class="list-group-item"><%=list2.get(i).getR_level()%></a>
-					<a href="#" class="list-group-item"><%=list2.get(i).getR_type2()%></a>
-					<%
-						}
-					%>
-
 				</div>
 			</div>
 			<!-- /.col-lg-3 -->
@@ -132,9 +110,17 @@
 
 				<div
 					style="text-align: center; margin-top: 50px; margin-bottom: 60px;">
+					<%
+						int t = 5;
+					String u_mbti;
+					RelationDAO rel = new RelationDAO();
+					ArrayList<Relation> list2 = rel.get_RList((String) session.getAttribute("u_id"));
+					session.setAttribute("u_mbti", list2.get(0).getR_type1());
+					%>
 					<%=session.getAttribute("u_id")%>
-					님 (<%=session.getAttribute("u_mbti")%>) 성향의 궁합입니다. <select
-						name="selectBox" id="selectBox" style="margin-left: 20px">
+					님 (<%=session.getAttribute("u_mbti")%>) 성향의 궁합입니다.
+					<select
+						name="selectBox" id="selectBox" style="margin-left: 20px" id="filterText">
 						<option value="s5" selected class="text-muted">&#9733;
 							&#9733; &#9733; &#9733; &#9733;</option>
 						<option value="s4" class="text-muted">&#9734 &#9733
@@ -143,16 +129,17 @@
 							&#9733 &#9733 &#9733</option>
 						<option value="s2" class="text-muted">&#9734 &#9734
 							&#9734 &#9733 &#9733</option>
-						<option value="s1" class="text-muted"">&#9734 &#9734
+						<option value="s1" class="text-muted">&#9734 &#9734
 							&#9734 &#9734 &#9733</option>
 					</select>
 				</div>
 
 
-				<div class="row">
+				<div class="row finterUL">
 					<%
 						User2DAO user2DAO = new User2DAO();
 					ArrayList<User2> list = user2DAO.getList();
+
 					for (int i = 0; i < list.size(); i++) {
 					%>
 					<div class="col-lg-4 col-md-6 mb-4">
@@ -166,7 +153,7 @@
 										String u_id = list.get(i).getU_id();
 									%>
 
-									<a href="userInfo.jsp?u_id=<%=u_id%>"> <%=list.get(i).getU_name()%>
+									<a href="userInfo.jsp?u_id=<%=u_id %>"> <%=list.get(i).getU_name()%>
 									</a>(<%=list.get(i).getU_age()%>)
 								</h4>
 								<h5><%=list.get(i).getU_loc()%></h5>

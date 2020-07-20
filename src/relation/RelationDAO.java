@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import user.User2DAO;
@@ -43,12 +44,17 @@ public class RelationDAO {
 				
 				list.add(rel);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		
 		return list;
-		
 	}
 }

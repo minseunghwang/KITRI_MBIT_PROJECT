@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class User2DAO {
@@ -52,6 +53,15 @@ public class User2DAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
 		}
 
 		return list;
@@ -72,6 +82,15 @@ public class User2DAO {
 			return -1; // 아이디가 없음
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
 		}
 		return -2; // 데이터베이스 오류
 	}
@@ -94,6 +113,15 @@ public class User2DAO {
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
 		}
 		return -1;
 	}
@@ -127,8 +155,16 @@ public class User2DAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("사용자 정보 불러오기 실패");
-		}
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 
+		}
 		return list;
 	}
 }
