@@ -96,7 +96,7 @@ public class User2DAO {
 	}
 	
 	public int join(User2 user) {
-		String SQL = "insert into user_info(u_no, u_id, u_pw, u_name, u_gender, u_age, u_loc, u_hobby, u_talent, u_mbti, u_img) values(u_no_inc.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, UTL_RAW.CAST_TO_RAW(?))";
+		String SQL = "insert into user_info(u_no, u_id, u_pw, u_name, u_gender, u_age, u_loc, u_hobby, u_talent, u_mbti, u_img) values(u_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, UTL_RAW.CAST_TO_RAW(?))";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, user.getU_id());
@@ -115,7 +115,6 @@ public class User2DAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				rs.close();
 				pstmt.close();
 				conn.close();
 			} catch (SQLException e) {
@@ -170,27 +169,54 @@ public class User2DAO {
 	}
 	
 	
-	public int profile(String userID, String u_img) {
-		String SQL = "UPDATE USER SET u_img=? WHERE u_id=? ";
+//	public int profile(String userID, String u_img) {
+//		String SQL = "UPDATE USER SET u_img=? WHERE u_id=? ";
+//		try {
+//			pstmt = conn.prepareStatement(SQL);
+//			pstmt.setString(1, userID);
+//			pstmt.setString(2, u_img);
+//			return pstmt.executeUpdate();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}finally {
+//			try {
+//				if(pstmt != null) pstmt.close();
+//				if(conn != null) conn.close();
+//			} catch(Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return -1;
+//	}
+	
+	public int update(User2 user) {
+		String SQL = "UPDATE USER_INFO SET u_pw=?,u_name=?, u_gender=?, u_age=?, u_loc=?, u_hobby=?, u_talent=?, u_mbti=? WHERE u_id=?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, userID);
-			pstmt.setString(2, u_img);
+			pstmt.setString(1, user.getU_pw());
+			pstmt.setString(2, user.getU_name());
+			pstmt.setString(3, user.getU_gender());
+			pstmt.setInt(4, user.getU_age());
+			pstmt.setString(5, user.getU_loc());
+			pstmt.setString(6, user.getU_hobby());
+			pstmt.setString(7, user.getU_talent());
+			pstmt.setString(8, user.getU_mbti());
+			pstmt.setString(9, user.getU_id());
+
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
-				if(pstmt != null) pstmt.close();
-				if(conn != null) conn.close();
-			} catch(Exception e) {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+
 		}
 		return -1;
 	}
-	
-
 	
 	
 }

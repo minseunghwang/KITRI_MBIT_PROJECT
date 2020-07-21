@@ -53,17 +53,18 @@
 
 	<!-- Page Content -->
 	<div class="container">
-		<form class="form-horizontal" action="boardInsert.jsp" method="post">
+		<form class="form-horizontal mt-5 mb-5" action="boardInsert.jsp" method="post" onsubmit="checkForm();">
+			<div class="input-group w-100">
+				<label class="control-label mr-3">제목</label> <input class="form-control"
+					id="title" name="title" type="text" placeholder="제목을 입력하세요." maxlength="33">
+			</div>
 			<div class="form-group">
-				<label class="control-label">제목</label> <input class="form-control"
-					id="title" name="title" type="text" placeholder="제목을 입력하세요.">
-
-				<label class="control-label">내용</label>
-				<textarea class="form-control" rows="10" name="content"
-					placeholder="내용을 입력하세요."></textarea>
+				<label class="control-label mt-3">내용</label>
+				<textarea id = "content" class="form-control" rows="10" name="content"
+					placeholder="내용을 입력하세요." maxlength="1333"></textarea>
 				<input type="hidden" name="id"
 					value="<%=session.getAttribute("u_id")%>">
-			</div>
+					</div>
 			<div align="right">
 				<button class="btn btn-outline-primary" 
 				style="background-color: #ffa28d; border-color: #ffa28d"; type="submit">등록</button>
@@ -85,5 +86,23 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>
 	<script src="./Resource/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript">
+		function checkForm() {
+			let blankPattern = /^\s+|\s+$/g;
+			let title = document.getElementById("title");
+			let content = document.getElementById("content");
+			if(title.value === '' || title.value === null || title.value.replace(blankPattern, "") === "") {
+				alert("제목을 입력 후 다시 시도 해주세요.");
+				title.focus();
+				event.preventDefault();
+			}
+			else if(content.value === '' || content.value === null || content.value.replace(blankPattern, "") === "") {
+				alert("내용을 입력 후 다시 시도 해주세요.");
+				content.focus();
+				event.preventDefault();
+			}
+			
+		}
+	</script>
 </body>
 </html>
