@@ -24,7 +24,7 @@
 <link href="../Resource/css/shop-homepage.css" rel="stylesheet">
 
 <%
-	String driverName = "oracle.jdbc.driver.OracleDriver"; 
+	String driverName = "oracle.jdbc.driver.OracleDriver";
 	String DB_URL = "jdbc:oracle:thin:@192.168.0.3:1521:XE";
 	String DB_USER = "c##team4";
 	String DB_PASSWORD = "min";
@@ -32,8 +32,8 @@
 			+ "case to_char(b_date, 'yy/mm/dd') when to_char(sysdate, 'yy/mm/dd') then to_char(b_date,'hh24:mi:ss') else to_char(b_date,'yy/mm/dd') end regdate "
 			+ "from board order by b_no desc";
 	try {
-		Class.forName(driverName);	
-	} catch(Exception e) {
+		Class.forName(driverName);
+	} catch (Exception e) {
 		e.printStackTrace();
 	}
 	
@@ -70,10 +70,13 @@
 
 	<!-- Page Content -->
 	<div class="container">
+		<br>
 		<h3 class="page-title">자유 게시판</h3>
 		<div align="right">
-			<a href="write.jsp"><button class="btn btn-danger" type="button">글쓰기</button></a>
+			<button class="btn btn-outline-primary" type="button"
+				onclick="location.href='write.jsp'">글쓰기</button>
 		</div>
+		<br>
 
 		<table class="table table-hover table-sm">
 			<thead class="thead-light">
@@ -86,33 +89,32 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% 
-					while(rs.next()) {
-						out.print("<tr onclick=\"location.href = \'content.jsp?no=" + rs.getString("b_no") + "\'\"" +">");
-						out.print("<td class='text-center'>" + rs.getString("b_no") + "</td> ");
-						out.print("<td class='text-left'>" +  rs.getString("b_title") + "</td> ");
-						out.print("<td class='text-center'>" + rs.getString("u_id") + "</td> ");
-						out.print("<td class='text-center'>" + rs.getString("regdate") + "</td> ");
-						out.print("<td class='text-center'>" + rs.getString("b_hit") + "</td> ");
-						out.print("</tr>");
-					} 
+				<%
+					while (rs.next()) {
+					out.print("<tr onclick=\"location.href = \'content.jsp?no=" + rs.getString("b_no") + "\'\"" + ">");
+					out.print("<td class='text-center'>" + rs.getString("b_no") + "</td> ");
+					out.print("<td class='text-left'>" + rs.getString("b_title") + "</td> ");
+					out.print("<td class='text-center'>" + rs.getString("u_id") + "</td> ");
+					out.print("<td class='text-center'>" + rs.getString("regdate") + "</td> ");
+					out.print("<td class='text-center'>" + rs.getString("b_hit") + "</td> ");
+					out.print("</tr>");
+				}
 				%>
 
 			</tbody>
 		</table>
 		<%
-					} catch(Exception e) {
-						out.println("Oracle Database Connection Problem <hr>");
-						out.println(e.getMessage());
-						e.printStackTrace();
-					}
-				%>
+			} catch (Exception e) {
+			out.println("Oracle Database Connection Problem <hr>");
+			out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		%>
 	</div>
 	<!-- /.container -->
 
 	<!-- Footer -->
-	<footer class="py-5 bg-dark"
-		style="position: absolute; bottom: 0; width: 100%;">
+	<footer class="py-5 bg-dark">
 		<div class="container">
 			<p class="m-0 text-center text-white">Copyright &copy; Your
 				Website 2020</p>
@@ -123,6 +125,5 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>
 	<script src="./Resource/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

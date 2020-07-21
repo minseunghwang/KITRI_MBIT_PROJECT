@@ -97,8 +97,8 @@
 	<!-- /.container -->
 
 	<!-- Footer -->
-	<footer class="py-5 bg-dark"
-		style="position: absolute; bottom: 0; width: 100%;">
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
 		<div class="container">
 			<p class="m-0 text-center text-white">Copyright &copy; Your
 				Website 2020</p>
@@ -109,6 +109,5 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>
 	<script src="./Resource/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
