@@ -72,7 +72,7 @@ alert(selectedValue);
 						<form method="post" action="joinAction.jsp">
 						<form method="post" action="imgAction.jsp" enctype="multipart/form-data">
 						
-							<h3 style="text-align: center;">회원가입 화면</h3>
+							<h3 style="text-align: center;">회원가입</h3>
 							
 							
 							<div class="form-group">
@@ -89,10 +89,13 @@ alert(selectedValue);
 							</div>
 							<div class="form-group" style="text-align: center;">
 								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-primary active"> <input
+									<label class="btn btn-primary active"
+									style="background-color: #AACFFF; border-color: #AACFFF";> <input
 										type="radio" name="u_gender" autocomplete="off" value="남자" checked>남자
 									</label> 
-									<label class="btn btn-primary"> <input
+									<label class="btn btn-primary"
+									style="background-color: #FF8DE7; border-color: #FF8DE7";> <input
+										style="background-color: #FFAAFA; border-color: #FFAAFA";
 										type="radio" name="u_gender" autocomplete="off" value="여자">여자
 									</label>
 								</div>
@@ -140,7 +143,8 @@ alert(selectedValue);
 							프로필 사진을 업로드하세요 <input type="file" name="u_img">
 							</span>
 							
-							<input type="submit" class="btn btn-primary form-control" value="회원가입">
+							<input type="submit" class="btn btn-primary form-control" value="회원가입"
+							style="background-color: #ffa28d; border-color: #ffa28d";>
 						</form>
 					</div>
 
