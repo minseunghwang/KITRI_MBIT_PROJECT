@@ -37,7 +37,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		style="background-color :#8dffdb !important";>
 		<div class="container">
-			<a class="navbar-brand" href="#">MBTI MATE</a>
+			<a class="navbar-brand" href="/Project_test/index.jsp">MBTI MATE</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">

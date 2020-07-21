@@ -48,7 +48,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		style="background-color :#8dffdb !important";>
 		<div class="container">
-			<a class="navbar-brand" href="#">MBTI MATE</a>
+			<a class="navbar-brand" href="/Project_test/index.jsp">MBTI MATE</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -56,9 +56,9 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="index.jsp"> 친구목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="mypage.jsp"> 회원정보</a></li>
-					<li class="nav-item active"><a class="nav-link" href="board/list.jsp"> 게시판 </a></li>
+					<li class="nav-item"><a class="nav-link" href="/Project_test/index.jsp"> 친구목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/Project_test/mypage.jsp"> 회원정보</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/Project_test/board/list.jsp"> 게시판 </a></li>
 				</ul>
 			</div>
 		</div>
