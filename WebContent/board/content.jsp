@@ -30,7 +30,7 @@
 	String DB_USER = "c##team4";
 	String DB_PASSWORD = "min";
 	String selectBoard = "SELECT * from board where b_no ="+b_no;
-	String selectComm = "SELECT * from sub_board where b_no ="+b_no;
+	String selectComm = "SELECT * from sub_board where b_no ="+b_no + "order by sb_no desc";
 	String hitUpdate = "UPDATE board SET b_hit = b_hit + 1 where b_no =" +b_no;
 	try {
 		Class.forName(driverName);	
@@ -77,13 +77,10 @@
 
 	<!-- Page Content -->
 	<div class="container">
-		<%
-			while(rsBoard.next())
-			{
+		<% while(rsBoard.next()) {
 				String writerId = rsBoard.getString("u_id");
 			%>
-		<br>
-		<div align="right">
+		<div align="right" class="mt-5">
 			<button class="btn btn-outline-primary text-right" type="button"
 				onclick="location.href='list.jsp'">목록</button>
 			<%if(writerId.equals(session.getAttribute("u_id"))) { %>
@@ -93,10 +90,8 @@
 				onclick="location.href='delete.jsp?no=<%=b_no%>'">삭제</button>
 			<%} %>
 		</div>
-		<br>
-		<table class="table">
+		<table class="table mt-3">
 			<tbody>
-
 				<tr>
 					<td>제목</td>
 					<td colspan="5"><%= rsBoard.getString("b_title")%></td>
@@ -121,39 +116,38 @@
 		  </li>
 		</ul>
 		<br>
-		<form class="form-inline" action="commentInsert.jsp" method="post">
-			<div class="form-row">
-				<input class="form-control" id="content" name="content" type="text" placeholder="댓글을 입력하세요.">
+		<form class="form-inline" action="commentInsert.jsp" method="post" onsubmit="checkForm();">
+			<div class="input-group w-100">
+				<input class="form-control m-2" id="comment" name="content" type="text" placeholder="댓글을 입력하세요." maxlength="66">
 				<input type="hidden" name="id" value="<%=session.getAttribute("u_id")%>">
 				<input type="hidden" name="b_no" value="<%=b_no%>">
-				<button class="btn btn-outline-primary" 
+				<button class="btn btn-outline-primary m-2" 
 						style="background-color: #ffa28d; border-color: #ffa28d"; type="submit">등록</button>
-			</div>
-		</form>
+				</div>
+			</form>
 			<%
 			}
-			if(rsComm.isBeforeFirst()) {
-			%>
-			<table class="table">
-			<thead>
-				<tr>
-					<th>내용</th>
-					<th>작성자</th>
-				</tr>
-			</thead>
-			<tbody>
-			<%
-			}
-			while(rsComm.next())
-			{
-			%>
-				<tr>
-					<td><%=rsComm.getString("sb_content") %></td>
-					<td><%=rsComm.getString("u_id") %></td>
-				</tr>
+			if(rsComm.isBeforeFirst()) { %>
+				<table class="table mt-3">
+					<thead>
+						<tr class="table-active text-center">
+							<th>내용</th>
+							<th>작성자</th>
+						</tr>
+					</thead>
+				<tbody>
+				<% while(rsComm.next()) { %>
+					<tr>
+						<td><%=rsComm.getString("sb_content") %></td>
+						<td class="text-center"><%=rsComm.getString("u_id") %></td>
+					</tr>
 			<%} %>
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+			<%} else { %>
+				<br><p>등록된 댓글이 없습니다.</p>
+			<% } %>
+
 	<%
 		} catch(Exception e) {
 			out.println("Oracle Database Connection Problem <hr>");
@@ -163,7 +157,7 @@
 		%>
 	</div>
 	<!-- /.container -->
-
+	<br>
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
 		style="background-color : #ffdb8d !important;">
@@ -177,5 +171,17 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>
 	<script src="./Resource/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript">
+	function checkForm() {
+		let blankPattern = /^\s+|\s+$/g;
+		let comment = document.getElementById("comment");
+		if(comment.value === '' || comment.value === null || comment.value.replace(blankPattern, "") === "") {
+			alert("내용을 입력 후 다시 시도 해주세요.");
+			comment.focus();
+			event.preventDefault();
+		}
+		
+	}
+	</script>
 </body>
 </html>
