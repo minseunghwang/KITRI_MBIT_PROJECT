@@ -80,7 +80,6 @@
 		<% while(rsBoard.next()) {
 				String writerId = rsBoard.getString("u_id");
 			%>
-<<<<<<< HEAD
 			<div align="right" class="mt-5">
 				<button class="btn btn-outline-primary text-right" type="button"
 					onclick="location.href='list.jsp'">목록</button>
@@ -90,7 +89,6 @@
 				<button class="btn btn-outline-danger text-right" type="button"
 					onclick="location.href='delete.jsp?no=<%=b_no%>'">삭제</button>
 				<%} %>
-=======
 		<br>
 		<div align="right">
 			<button class="btn btn-outline-primary text-right" type="button"
@@ -137,7 +135,6 @@
 				<input type="hidden" name="b_no" value="<%=b_no%>">
 				<button class="btn btn-outline-primary" 
 						style="background-color: #ffa28d; border-color: #ffa28d"; type="submit">등록</button>
->>>>>>> 9369a9bf2647f2c423516883c07119253d4761ef
 			</div>
 			<br>
 			<table class="table">
