@@ -8,16 +8,16 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <%
-	String b_title = request.getParameter("title");
-	String b_content = request.getParameter("content");
+	String b_no = request.getParameter("b_no");
+	String sb_content = request.getParameter("content");
 	String u_id = request.getParameter("id");
 	
 	String driverName = "oracle.jdbc.driver.OracleDriver";
 	String DB_URL = "jdbc:oracle:thin:@192.168.0.3:1521:XE";
 	String DB_USER = "c##team4";
 	String DB_PASSWORD = "min";
-	String insertBoard = "INSERT INTO BOARD" + "(b_no, b_title, u_id, b_date, b_hit, b_content)" + "VALUES (b_no_seq.nextval, '"
-			+ b_title + "', '" + u_id + "', sysdate, '0' , '" + b_content + "')";
+	String insertBoard = "INSERT INTO sub_board" + "(sb_no, sb_content, sb_date, u_id, b_no)" + "VALUES (sb_no_seq.nextval, '"
+			+ sb_content + "', sysdate, '" + u_id + "','" + b_no + "')";
 	
 	try {
 		Class.forName(driverName);
@@ -32,7 +32,7 @@
 		out.println(e.getMessage());
 		e.printStackTrace();
 	} finally {
-		out.print("<script>location.href='list.jsp';</script>");
+		out.print("<script>location.href='content.jsp?no="+b_no+"';</script>");
 	}
 %>
 </head>

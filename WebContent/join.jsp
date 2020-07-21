@@ -34,9 +34,10 @@
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+		style="background-color :#8dffdb !important";>
 		<div class="container">
-			<a class="navbar-brand" href="#">Start Bootstrap</a>
+			<a class="navbar-brand" href="#">MBTI MATE</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -70,7 +71,7 @@
 					<div class="card-body col-lg-5">
 					
 						<form method="post" action="joinAction.jsp">
-							
+
 								<h3 style="text-align: center;">회원가입 화면</h3>
 
 
@@ -78,6 +79,7 @@
 									<input type="text" class="form-control"
 										placeholder="아이디 : 3~12자 영문 소문자" name="u_id" maxlength="20">
 								</div>
+
 								<div class="form-group">
 									<input type="password" class="form-control"
 										placeholder="비밀번호 : 3~12자 숫자" name="u_pw" maxlength="20">
@@ -140,14 +142,15 @@
 								<span class="btn btn-default btn-file" style="margin-bottom: 15px;">
 									프로필 사진을 업로드하세요 <input type="file" name="u_img">
 								</span> 
-								
-								<input type="submit" class="btn btn-primary form-control"
-									value="회원가입">
-							</form>
+							
+							<input type="submit" class="btn btn-primary form-control" value="회원가입"
+							style="background-color: #ffa28d; border-color: #ffa28d";>
+						</form>
+					</div>	
 					</div>
-
 				</div>
-			</div>
+				</div>
+
 			<!-- /.col-lg-9 -->
 
 			<div class="col-lg-1"></div>
@@ -163,9 +166,9 @@
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
-		style="position: absolute; bottom: 0; width: 100%;">
+		style="position: absolute; bottom: 0; width: 100%; background-color : #ffdb8d !important;" >
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
+			<p class="m-0 text-center text-white">Copyright &copy; KTR 
 				Website 2020</p>
 		</div>
 		<!-- /.container -->

@@ -54,21 +54,24 @@
 	<div class="container">
 		<form class="form-horizontal" action="boardInsert.jsp" method="post">
 			<div class="form-group">
-				<label class="control-label">제목</label> 
-				<input class="form-control"	id="title" name="title" type="text" placeholder="제목을 입력하세요">
-				
-				<label class="control-label">내용</label> 
-				<textarea class="form-control" rows="10" name="content" placeholder="내용을 입력하세요"></textarea>
-				<input type="hidden" name="id" value="<%=session.getAttribute("u_id") %>">
+				<label class="control-label">제목</label> <input class="form-control"
+					id="title" name="title" type="text" placeholder="제목을 입력하세요.">
+
+				<label class="control-label">내용</label>
+				<textarea class="form-control" rows="10" name="content"
+					placeholder="내용을 입력하세요."></textarea>
+				<input type="hidden" name="id"
+					value="<%=session.getAttribute("u_id")%>">
 			</div>
-			<button type="submit" class="btn btn-danger">등록</button>
+			<div align="right">
+				<button class="btn btn-outline-primary" type="submit">등록</button>
+			</div>
 		</form>
 	</div>
 	<!-- /.container -->
 
 	<!-- Footer -->
-	<footer class="py-5 bg-dark"
-		style="position: absolute; bottom: 0; width: 100%;">
+	<footer class="py-5 bg-dark">
 		<div class="container">
 			<p class="m-0 text-center text-white">Copyright &copy; Your
 				Website 2020</p>
@@ -79,6 +82,5 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>
 	<script src="./Resource/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

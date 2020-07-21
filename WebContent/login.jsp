@@ -33,9 +33,9 @@
 	%>
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-		style="background-color: #52030b !important">
+		style="background-color :#8dffdb !important";>
 		<div class="container">
-			<a class="navbar-brand" href="#">Start Bootstrap</a>
+			<a class="navbar-brand" href="#">MBTI MATE</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -79,12 +79,12 @@
 							</div>
 							<input type="submit" class="btn btn-primary form-control"
 								value="로그인"
-								style="background-color: #2e435a; border-color: #2e435a";>
+								style="background-color: #ffa28d; border-color: #ffa28d";>
 						</form>
 						<form method="post" action="join.jsp">
 							<input type="submit" class="btn btn-primary form-control"
 								value="회원가입"
-								style="background-color: #2e435a; border-color: #2e435a; margin-top: 10px";>
+								style="background-color: #ffa28d; border-color: #ffa28d; margin-top: 10px";>
 						</form>
 					</div>
 
@@ -101,9 +101,9 @@
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
-		style="position: absolute; bottom: 0; width: 100%;">
+			style="position: absolute; bottom: 0; width: 100%; background-color : #ffdb8d !important;" >
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
+			<p class="m-0 text-center text-white">Copyright &copy; KTR 
 				Website 2020</p>
 		</div>
 		<!-- /.container -->

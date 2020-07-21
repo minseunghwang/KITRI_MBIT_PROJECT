@@ -26,9 +26,10 @@
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+		style="background-color :#8dffdb !important";>
 		<div class="container">
-			<a class="navbar-brand" href="#">Start Bootstrap</a>
+			<a class="navbar-brand" href="#">MBTI MATE</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -101,11 +102,13 @@
 							</div>
 							<div class="form-group" style="text-align: center;">
 								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-primary active">
+									<label class="btn btn-primary active"
+									style="background-color: #AACFFF; border-color: #AACFFF";>
 									<input type="radio" name="u_gender" autocomplete="off" value="남자"
 									<% if(list.get(0).getU_gender().equals("남자")) out.print("checked");%>>남자
 									</label> 
-									<label class="btn btn-primary"> 
+									<label class="btn btn-primary"
+									style="background-color: #FFAAFA; border-color: #FFAAFA";> 
 									<input type="radio" name="u_gender" autocomplete="off" value="여자"
 									<% if(list.get(0).getU_gender().equals("여자")) out.print("checked"); %>>여자
 									</label>
@@ -155,7 +158,9 @@
 								</span>  
 							
 							
-							<input type="submit" class="btn btn-primary" value="수정하기">
+							<input type="submit" class="btn btn-primary form-control" value="수정하기"
+							style="background-color: #ffa28d; border-color: #ffa28d";>
+
 						</form>
 					</div>
 
@@ -172,9 +177,9 @@
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
-		style="position: absolute; bottom: 0; width: 100%;">
+		style="position: absolute; bottom: 0; width: 100%; background-color : #ffdb8d !important;">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
+			<p class="m-0 text-center text-white">Copyright &copy; KTR 
 				Website 2020</p>
 		</div>
 		<!-- /.container -->
