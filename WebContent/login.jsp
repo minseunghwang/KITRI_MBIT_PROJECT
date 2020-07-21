@@ -68,7 +68,7 @@
 
 					<div class="card-body col-lg-5">
 						<form method="post" action="loginAction.jsp">
-							<h3 style="text-align: center;">로그인</h3>
+							<h3 style="text-align: center;"> 🙋🏻‍♀️ 환영합니다 🙋🏻‍♀️  </h3>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="아이디"
 									name="u_id" maxlength="20">
