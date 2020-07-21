@@ -51,9 +51,10 @@
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+			style="background-color :#8dffdb !important";>
 		<div class="container">
-			<a class="navbar-brand" href="#">Start Bootstrap</a>
+			<a class="navbar-brand" href="#">MBTI MATE</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -125,7 +126,8 @@
 				<input class="form-control" id="content" name="content" type="text" placeholder="댓글을 입력하세요.">
 				<input type="hidden" name="id" value="<%=session.getAttribute("u_id")%>">
 				<input type="hidden" name="b_no" value="<%=b_no%>">
-				<button class="btn btn-outline-primary" type="submit">등록</button>
+				<button class="btn btn-outline-primary" 
+						style="background-color: #ffa28d; border-color: #ffa28d"; type="submit">등록</button>
 			</div>
 		</form>
 			<%
@@ -163,9 +165,10 @@
 	<!-- /.container -->
 
 	<!-- Footer -->
-	<footer class="py-5 bg-dark">
+	<footer class="py-5 bg-dark"
+		style="background-color : #ffdb8d !important;">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
+			<p class="m-0 text-center text-white">Copyright &copy; KTR 
 				Website 2020</p>
 		</div>
 		<!-- /.container -->
