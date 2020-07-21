@@ -51,9 +51,10 @@
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+			style="background-color :#8dffdb !important";>
 		<div class="container">
-			<a class="navbar-brand" href="#">Start Bootstrap</a>
+			<a class="navbar-brand" href="#">MBTI MATE</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -79,6 +80,7 @@
 		<% while(rsBoard.next()) {
 				String writerId = rsBoard.getString("u_id");
 			%>
+<<<<<<< HEAD
 			<div align="right" class="mt-5">
 				<button class="btn btn-outline-primary text-right" type="button"
 					onclick="location.href='list.jsp'">목록</button>
@@ -88,6 +90,54 @@
 				<button class="btn btn-outline-danger text-right" type="button"
 					onclick="location.href='delete.jsp?no=<%=b_no%>'">삭제</button>
 				<%} %>
+=======
+		<br>
+		<div align="right">
+			<button class="btn btn-outline-primary text-right" type="button"
+				onclick="location.href='list.jsp'">목록</button>
+			<%if(writerId.equals(session.getAttribute("u_id"))) { %>
+			<button class="btn btn-outline-primary text-right" type="button"
+				onclick="location.href='modify.jsp?no=<%=b_no%>'">수정</button>
+			<button class="btn btn-outline-danger text-right" type="button"
+				onclick="location.href='delete.jsp?no=<%=b_no%>'">삭제</button>
+			<%} %>
+		</div>
+		<br>
+		<table class="table">
+			<tbody>
+
+				<tr>
+					<td>제목</td>
+					<td colspan="5"><%= rsBoard.getString("b_title")%></td>
+				</tr>
+				<tr>
+					<td>작성자</td>
+					<td><%= writerId %></td>
+					<td>작성일</td>
+					<td><%= rsBoard.getString("b_date")%></td>
+					<td>조회수</td>
+					<td><%= rsBoard.getString("b_hit")%></td>
+				</tr>
+				<tr>
+					<td colspan="6"><%= rsBoard.getString("b_content")%></td>
+				</tr>
+			</tbody>
+		</table>
+		<br><br>
+		<ul class="nav nav-tabs">
+		  <li class="nav-item">
+		    <a class="nav-link active">댓글</a>
+		  </li>
+		</ul>
+		<br>
+		<form class="form-inline" action="commentInsert.jsp" method="post">
+			<div class="form-row">
+				<input class="form-control" id="content" name="content" type="text" placeholder="댓글을 입력하세요.">
+				<input type="hidden" name="id" value="<%=session.getAttribute("u_id")%>">
+				<input type="hidden" name="b_no" value="<%=b_no%>">
+				<button class="btn btn-outline-primary" 
+						style="background-color: #ffa28d; border-color: #ffa28d"; type="submit">등록</button>
+>>>>>>> 9369a9bf2647f2c423516883c07119253d4761ef
 			</div>
 			<br>
 			<table class="table">
@@ -158,9 +208,10 @@
 	<!-- /.container -->
 	<br>
 	<!-- Footer -->
-	<footer class="py-5 bg-dark">
+	<footer class="py-5 bg-dark"
+		style="background-color : #ffdb8d !important;">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
+			<p class="m-0 text-center text-white">Copyright &copy; KTR 
 				Website 2020</p>
 		</div>
 		<!-- /.container -->

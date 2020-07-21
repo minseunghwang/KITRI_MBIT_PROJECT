@@ -21,12 +21,15 @@
 
 <!-- Custom styles for this template -->
 <link href="./Resource/css/shop-homepage.css" rel="stylesheet">
+<link href="./Resource/css/custom.css" rel="stylesheet">
+
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+		style="background-color :#8dffdb !important";>
 		<div class="container">
-			<a class="navbar-brand" href="#">Start Bootstrap</a>
+			<a class="navbar-brand" href="#">MBTI MATE</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -56,6 +59,13 @@
 		
 	}
 	
+	if(u_id == null) {
+		session.setAttribute("messageType", "오류메시지");
+		session.setAttribute("messageContent", "현재 로그인이 되어있지 않습니다.");
+		response.sendRedirect("login.jsp");
+		return;
+	}
+
 	User2DAO user2DAO = new User2DAO();
 	ArrayList<User2> list = user2DAO.getUserinfo((String) session.getAttribute("u_id"));	
     %>
@@ -73,52 +83,57 @@
 
 					<div class="card-body col-lg-5">
 						<form method="post" action="updateAction.jsp">
+
 							<h3 style="text-align: center;">회원정보 수정</h3>
 
         							<div class="form-group">
-								<input type="text" class="form-control" placeholder="아이디 : <%= list.get(0).getU_id() %>"
-									name="u_id" maxlength="20">
+								<input type="text" class="form-control" value="<%= list.get(0).getU_id() %>" 
+									name="u_id" maxlength="20"> 
+									
+									<a style="font-size:13px; color:red;"> * 아이디는 수정할 수 없습니다.</a>							
 							</div>
 							<div class="form-group">
 								<input type="password" class="form-control" placeholder="비밀번호 : <%= list.get(0).getU_pw() %>"
 									name="u_pw" maxlength="20">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="이름 : <%= list.get(0).getU_name() %>"
+								<input type="text" class="form-control" placeholder="이름" value="<%= list.get(0).getU_name() %>"
 									name="u_name" maxlength="20">
 							</div>
 							<div class="form-group" style="text-align: center;">
 								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-primary active">
+									<label class="btn btn-primary active"
+									style="background-color: #AACFFF; border-color: #AACFFF";>
 									<input type="radio" name="u_gender" autocomplete="off" value="남자"
 									<% if(list.get(0).getU_gender().equals("남자")) out.print("checked");%>>남자
 									</label> 
-									<label class="btn btn-primary"> 
+									<label class="btn btn-primary"
+									style="background-color: #FFAAFA; border-color: #FFAAFA";> 
 									<input type="radio" name="u_gender" autocomplete="off" value="여자"
 									<% if(list.get(0).getU_gender().equals("여자")) out.print("checked"); %>>여자
 									</label>
 								</div>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="나이 : <%= list.get(0).getU_age() %>"
+								<input type="text" class="form-control" placeholder="나이 " value="<%= list.get(0).getU_age() %>"
 									name="u_age" maxlength="20">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="주소 : <%= list.get(0).getU_loc() %>"
+								<input type="text" class="form-control" placeholder="주소" value="<%= list.get(0).getU_loc() %>"
 									name="u_loc" maxlength="20">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="취미 : <%= list.get(0).getU_hobby() %>"
+								<input type="text" class="form-control" placeholder="취미" value="<%= list.get(0).getU_hobby() %>"
 									name="u_hobby" maxlength="20">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="특기 : <%= list.get(0).getU_talent() %>"
+								<input type="text" class="form-control" placeholder="특기 " value="<%= list.get(0).getU_talent() %>"
 									name="u_talent" maxlength="20">
 							</div>
 							
 							<div>
 							<select id="selectBox" name="u_mbti" style="margin-bottom: 15px; padding: 5px; width: 300px">
-								<option value=""> 나의 유형 : <%= list.get(0).getU_mbti() %> </option>
+								<option value="<%= list.get(0).getU_mbti() %>"> 나의 유형 : <%= list.get(0).getU_mbti() %> </option>
 								<option value="INTJ">INTJ</option>
 								<option value="INTP">INTP</option>
 								<option value="ENTJ">ENTJ</option>
@@ -138,13 +153,14 @@
 							</select>
 							</div>
 
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="사진 : <%= list.get(0).getU_img() %>"
-									name="u_img" maxlength="500">
-							</div>
+								<span class="btn btn-default btn-file" style="margin-bottom: 15px;">
+									프로필 사진을 업로드하세요 <input type="file" name="u_img">
+								</span>  
 							
 							
-							<input type="submit" class="btn btn-primary form-control" value="수정하기">
+							<input type="submit" class="btn btn-primary form-control" value="수정하기"
+							style="background-color: #ffa28d; border-color: #ffa28d";>
+
 						</form>
 					</div>
 
@@ -161,9 +177,9 @@
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
-		style="position: absolute; bottom: 0; width: 100%;">
+		style="position: absolute; bottom: 0; width: 100%; background-color : #ffdb8d !important;">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
+			<p class="m-0 text-center text-white">Copyright &copy; KTR 
 				Website 2020</p>
 		</div>
 		<!-- /.container -->
