@@ -63,10 +63,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				<h1 class="my-4">여기 이름 뭘로 하징</h1>
+				<h1 class="my-4">💜여기 이름 뭘로 하징</h1>
 				<div class="list-group">
-					<a href="board/list.jsp" class="list-group-item">게시판</a> 
-					<a href="mypage.jsp" class="list-group-item">마이페이지(수정)</a>
+					<a href="board/list.jsp" class="list-group-item">❤  자유게시판</a> 
+					<a href="mypage.jsp" class="list-group-item">💛  마이페이지(수정)</a>
 
 					<%
 						String u_mbti = null;
