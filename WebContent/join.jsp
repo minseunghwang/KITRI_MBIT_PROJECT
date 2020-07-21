@@ -72,7 +72,7 @@
 					
 						<form method="post" action="joinAction.jsp">
 
-								<h3 style="text-align: center;">회원가입 화면</h3>
+								<h3 style="text-align: center;">회원가입</h3>
 
 
 								<div class="form-group">
@@ -88,16 +88,19 @@
 									<input type="text" class="form-control" placeholder="이름"
 										name="u_name" maxlength="20">
 								</div>
-								<div class="form-group" style="text-align: center;">
-									<div class="btn-group" data-toggle="buttons">
-										<label class="btn btn-primary active"> <input
-											type="radio" name="u_gender" autocomplete="off" value="남자"
-											checked>남자
-										</label> <label class="btn btn-primary"> <input type="radio"
-											name="u_gender" autocomplete="off" value="여자">여자
-										</label>
-									</div>
+										
+							<div class="form-group" style="text-align: center;">
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-primary active"
+									style="background-color: #AACFFF; border-color: #AACFFF";>
+									<input type="radio" name="u_gender" autocomplete="on" value="남자">남자
+									</label> 
+									<label class="btn btn-primary"
+									style="background-color: #FFAAFA; border-color: #FFAAFA";> 
+									<input type="radio" name="u_gender" autocomplete="off" value="여자">여자
+									</label>
 								</div>
+							</div>
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="나이"
 										name="u_age" maxlength="20">
