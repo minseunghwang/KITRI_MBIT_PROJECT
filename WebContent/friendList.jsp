@@ -195,8 +195,8 @@
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
-			style="position: absolute; bottom: 0; width: 100%; background-color : #ffdb8d !important;" >
-		<div class="container">
+			style="background-color : #ffdb8d !important;" >
+		<div class="contents">
 			<p class="m-0 text-center text-white">Copyright &copy; KTR 
 				Website 2020</p>
 		</div>
