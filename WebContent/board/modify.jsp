@@ -98,7 +98,6 @@
 	<!-- /.container -->
 
 	<!-- Footer -->
-	<!-- Footer -->
 	<footer class="py-5 bg-dark"
 		style="background-color : #ffdb8d !important;">
 		<div class="container">
