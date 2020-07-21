@@ -70,15 +70,12 @@
 
 	<!-- Page Content -->
 	<div class="container">
-		<br>
-		<h3 class="page-title">자유 게시판</h3>
+		<h2 class="page-title my-4">자유 게시판</h3>
 		<div align="right">
 			<button class="btn btn-outline-primary" type="button"
 				onclick="location.href='write.jsp'">글쓰기</button>
 		</div>
-		<br>
-
-		<table class="table table-hover table-sm">
+		<table class="table table-hover table-sm mt-3 mb-5">
 			<thead class="thead-light">
 				<tr>
 					<th class="text-center">No.</th>
