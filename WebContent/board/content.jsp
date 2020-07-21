@@ -80,17 +80,7 @@
 		<% while(rsBoard.next()) {
 				String writerId = rsBoard.getString("u_id");
 			%>
-			<div align="right" class="mt-5">
-				<button class="btn btn-outline-primary text-right" type="button"
-					onclick="location.href='list.jsp'">목록</button>
-				<%if(writerId.equals(session.getAttribute("u_id"))) { %>
-				<button class="btn btn-outline-primary text-right" type="button"
-					onclick="location.href='modify.jsp?no=<%=b_no%>'">수정</button>
-				<button class="btn btn-outline-danger text-right" type="button"
-					onclick="location.href='delete.jsp?no=<%=b_no%>'">삭제</button>
-				<%} %>
-		<br>
-		<div align="right">
+		<div align="right" class="mt-5">
 			<button class="btn btn-outline-primary text-right" type="button"
 				onclick="location.href='list.jsp'">목록</button>
 			<%if(writerId.equals(session.getAttribute("u_id"))) { %>
@@ -100,10 +90,8 @@
 				onclick="location.href='delete.jsp?no=<%=b_no%>'">삭제</button>
 			<%} %>
 		</div>
-		<br>
-		<table class="table">
+		<table class="table mt-3">
 			<tbody>
-
 				<tr>
 					<td>제목</td>
 					<td colspan="5"><%= rsBoard.getString("b_title")%></td>
@@ -128,47 +116,13 @@
 		  </li>
 		</ul>
 		<br>
-		<form class="form-inline" action="commentInsert.jsp" method="post">
-			<div class="form-row">
-				<input class="form-control" id="content" name="content" type="text" placeholder="댓글을 입력하세요.">
+		<form class="form-inline" action="commentInsert.jsp" method="post" onsubmit="checkForm();">
+			<div class="input-group w-100">
+				<input class="form-control m-2" id="comment" name="content" type="text" placeholder="댓글을 입력하세요." maxlength="66">
 				<input type="hidden" name="id" value="<%=session.getAttribute("u_id")%>">
 				<input type="hidden" name="b_no" value="<%=b_no%>">
-				<button class="btn btn-outline-primary" 
+				<button class="btn btn-outline-primary m-2" 
 						style="background-color: #ffa28d; border-color: #ffa28d"; type="submit">등록</button>
-			</div>
-			<br>
-			<table class="table">
-				<tbody>
-					<tr>
-						<td>제목</td>
-						<td colspan="5"><%= rsBoard.getString("b_title")%></td>
-					</tr>
-					<tr>
-						<td>작성자</td>
-						<td><%= writerId %></td>
-						<td>작성일</td>
-						<td><%= rsBoard.getString("b_date")%></td>
-						<td>조회수</td>
-						<td><%= rsBoard.getString("b_hit")%></td>
-					</tr>
-					<tr>
-						<td colspan="6"><%= rsBoard.getString("b_content")%></td>
-					</tr>
-				</tbody>
-			</table>
-			<br><br><br><br><br><hr>
-			<ul class="nav nav-tabs mb-2">
-			  <li class="nav-item">
-			    <a class="nav-link active">댓글</a>
-			  </li>
-			</ul>
-		
-			<form class="form-inline" action="commentInsert.jsp" method="post" onsubmit="checkForm();">
-				<div class="input-group w-100">
-					<input class="form-control m-2" id="comment" name="content" type="text" placeholder="댓글을 입력하세요." maxlength="66">
-					<input type="hidden" name="id" value="<%=session.getAttribute("u_id")%>">
-					<input type="hidden" name="b_no" value="<%=b_no%>">
-					<button class="btn btn-outline-primary m-2" type="submit">등록</button>
 				</div>
 			</form>
 			<%
