@@ -19,7 +19,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>joinAction</title>
+<title>updateAction</title>
 </head>
 <body>
 	<%
@@ -27,39 +27,28 @@
 		if(session.getAttribute("u_id") != null){
 			u_id = (String) session.getAttribute("u_id");
 		}
-		if(u_id != null){
-			session.setAttribute("u_id",user.getU_id());
+		
+		User2DAO userDAO = new User2DAO();
+		int result = userDAO.update(user);
+
+		
+		if(user.getU_pw() == null){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('이미 로그인이 되었습니다.')");
-			script.println("locatin.href = 'friendList.jsp'");
-			script.println("</script>");
-		}
-		if(user.getU_id() == null || user.getU_pw() == null){
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('아이디와 비밀번호를 입력해주세요.')");
+			script.println("alert('비밀번호를 입력해주세요.')");
 			script.println("history.back()");
 			script.println("</script>");
-		} else{
-			User2DAO userDAO = new User2DAO();
-			int result = userDAO.join(user);
-			if(result == -1){
+		} else if(result != -1){
+		     	session.setAttribute("userID",user.getU_id());
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
-				script.println("alert('이미 존재하는 아이디 입니다.')");
-				script.println("history.back()");
-				script.println("</script>");
-			}
-			else{
-				session.setAttribute("userID",user.getU_id());
-				PrintWriter script = response.getWriter();
-				script.println("<script>");
-				script.println("alert('회원가입이 완료되었습니다.')");
+				script.println("alert('회원정보 수정이 완료되었습니다.')");
 				script.println("location.href = 'friendList.jsp'");
 				script.println("</script>");
 			}
-		}
+		
 	%>
 </body>
 </html>
+
+
