@@ -62,10 +62,18 @@
 					data-ride="carousel" style="text-align: -webkit-center;">
 
 					<div class="card-body col-lg-5">
-						<form method="post" action="updateAction.jsp">
 
 							<h3 style="text-align: center;">회원정보 수정</h3>
-
+							
+							<img src="./upload/<%=list.get(0).getU_img()%>" style="margin-top:30px;" width=150 height=150></img>
+							
+								<form action="upload.jsp" method="post" enctype="multipart/form-data">
+								<span class="btn btn-default" style="margin-left:95px;"><input type="file" name="file"></span>
+								<input type="submit" class="btn btn-outline-secondary form-control" value="사진 등록" style="margin-bottom:30px;">
+								</form>
+					
+								
+								<form method="post" action="updateAction.jsp">
 							<div class="form-group">
 								<input type="text" class="form-control"
 									value="<%=list.get(0).getU_id()%>" name="u_id" maxlength="20">
@@ -88,11 +96,11 @@
 									<label class="btn btn-secondary"> <input type="radio"
 										name="u_gender" autocomplete="on" value="남자"
 										<%if (list.get(0).getU_gender().equals("남자"))
-	System.out.print("checked");%>>남자
+										System.out.print("checked");%>>남자
 									</label> <label class="btn btn-secondary"> <input type="radio"
 										name="u_gender" value="여자"
 										<%if (list.get(0).getU_gender().equals("여자"))
-	System.out.print("checked");%>>여자
+										System.out.print("checked");%>>여자
 									</label>
 								</div>
 							</div>
@@ -118,8 +126,7 @@
 							<div>
 								<select id="selectBox" name="u_mbti"
 									style="margin-bottom: 15px; padding: 5px; width: 300px">
-									<option value="<%=list.get(0).getU_mbti()%>">나의 유형 :
-										<%=list.get(0).getU_mbti()%>
+									<option value="<%=list.get(0).getU_mbti()%>">나의 유형 :<%=list.get(0).getU_mbti()%>
 									</option>
 									<option value="INTJ">INTJ</option>
 									<option value="INTP">INTP</option>
@@ -139,13 +146,10 @@
 									<option value="ESFP">ESFP</option>
 								</select>
 							</div>
-
-							<span class="btn btn-file" style="margin-bottom: 15px;">
-								프로필 사진을 업로드하세요 <input type="file" name="u_img">
-							</span> <input type="submit" class="btn btn-secondary form-control"
-								value="수정하기">
-
-						</form>
+							
+							<input type="submit" class="btn btn-secondary form-control" value="수정하기" style="margin-bottom:10px;">
+						</form> 
+							 
 					</div>
 
 				</div>
@@ -158,6 +162,8 @@
 
 	</div>
 	<!-- /.container -->
+
+	</footer>
 
 	<%@ include file="Footer.jsp"%>
 

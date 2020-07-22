@@ -23,6 +23,7 @@
 <!-- Custom styles for this template -->
 <link href="./Resource/css/custom.css" rel="stylesheet">
 
+
 <script language="javascript">
 	var selectBox = document.getElementById("selectBox");
 	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
@@ -46,11 +47,12 @@
 
 					<div class="card-body col-lg-5">
 
-						<form method="post" action="joinAction.jsp">
+						
 
 							<h3 style="text-align: center;">회원가입</h3>
+						
 
-
+                             <form method="post" action="joinAction.jsp">
 							<div class="form-group">
 								<input type="text" class="form-control"
 									placeholder="아이디 : 3~12자 영문 소문자" name="u_id" maxlength="20">
@@ -115,10 +117,7 @@
 								</select>
 							</div>
 
-							<span class="btn btn-default btn-file"
-								style="margin-bottom: 15px;"> 프로필 사진을 업로드하세요 <input
-								type="file" name="u_img">
-							</span> <input type="submit" class="btn btn-secondary form-control"
+							 <input type="submit" class="btn btn-secondary form-control"
 								value="회원가입">
 						</form>
 					</div>
