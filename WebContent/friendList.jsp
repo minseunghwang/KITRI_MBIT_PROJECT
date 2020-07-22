@@ -24,41 +24,75 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		var index = $("#selectBox option:selected").val();
-		alert(index);
-	})
+	$(document).ready(
+			function() {
+				$('#selectBox1').change(
+						function() {
+							var mbti_level = $("#selectBox1 option:selected")
+									.val();
+							$.ajax({
+								type : "POST",
+								url : "checkLevel.jsp",
+								data : {
+									mbti_level : mbti_level
+								},
+								dataType : "json",
+								// 통신이 완료되면 호출되는 함수
+								success : function(result) {
+									if (result.length != 0) {
+
+										$("#user_card_side").attr("style",
+												"style=");
+										var original_in = $("#user_card");
+
+										$("#user_card_side").empty();
+
+										$.each(result, function() {
+											var copy = original_in.clone();
+
+											copy.find("#uid").attr(
+													"href",
+													"userInfo.jsp?u_id="
+															+ this["u_id"])
+											copy.find("#uid").text(
+													this["u_name"]);
+											copy.find("#uage").text(
+													"(" + this["u_age"] + ")");
+											copy.find("#ugender").text(
+													this["u_gender"]);
+											copy.find("#uloc").text(
+													this["u_loc"]);
+											copy.find("#uhobby").text(
+													this["u_hobby"]);
+											copy.find("#utalent").text(
+													this["u_talent"]);
+											copy.find("#umbti").text(
+													this["u_mbti"]);
+											copy.find("#uimg").attr("src",
+													this["u_img"]);
+
+											copy.appendTo("#user_card_side");
+										})
+									} else {
+										alert("해당 궁합의 사용자가 없습니다.")
+									}
+								},
+								complete : function(result) { // 통신실패했어도 완료 되었을때
+								},
+								error : function(req, status, err) {
+									alert(req);
+									alert(status);
+									alert(err);
+								}
+							})
+						})
+			})
 </script>
 </head>
 <body>
 
 
-	<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/Project_test/index.jsp" style="padding-left:400px">MBTI MATE</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" 
-  aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto" style="padding-left:780px">
-      <li class="nav-item active">
-        <a class="nav-link" href="/Project_test/index.jsp">친구목록<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Project_test/board/list.jsp">게시판</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Project_test/mypage.jsp">회원정보</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="친구 찾기">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>
-    </form>
-  </div>
-</nav>
+	<%@ include file="Navigation.jsp" %>
 
 	<!-- Page Content -->
 	<div class="container">
@@ -66,21 +100,8 @@
 			<div class="col-lg-3">
 				<h1 class="my-4">💜MATE💜</h1>
 				<div class="list-group">
-					<a href="board/list.jsp" class="list-group-item">❤  자유게시판</a> 
-					<a href="mypage.jsp" class="list-group-item">💛  마이페이지(수정)</a>
-
-					<%
-						String u_mbti = null;
-					RelationDAO rel = new RelationDAO();
-					ArrayList<Relation> list2 = rel.get_RList((String) session.getAttribute("u_id"));
-					session.setAttribute("u_mbti", list2.get(0).getR_type1());
-					for (int i = 0; i < list2.size(); i++) {
-					%>
-					<a href="#" class="list-group-item"><%=list2.get(i).getR_level()%></a>
-					<a href="#" class="list-group-item"><%=list2.get(i).getR_type2()%></a>
-					<%
-						}
-					%>
+					<a href="board/list.jsp" class="list-group-item">게시판</a> <a
+						href="mypage.jsp" class="list-group-item">마이페이지(수정)</a>
 				</div>
 			</div>
 			<!-- /.col-lg-3 -->
@@ -125,87 +146,76 @@
 
 				<div
 					style="text-align: center; margin-top: 50px; margin-bottom: 60px;">
-			
-					
-					<%=session.getAttribute("u_id")%>
-					님 (<%=session.getAttribute("u_mbti")%>) 성향의 궁합입니다.
-					<select name="selectBox" id="selectBox" style="margin-left: 20px" id="filterText">
-						<option value="s5" selected class="text-muted">&#9733;
-							&#9733; &#9733; &#9733; &#9733;</option>
-						<option value="s4" class="text-muted">&#9734 &#9733
-							&#9733 &#9733 &#9733</option>
-						<option value="s3" class="text-muted">&#9734 &#9734
-							&#9733 &#9733 &#9733</option>
-						<option value="s2" class="text-muted">&#9734 &#9734
-							&#9734 &#9733 &#9733</option>
-						<option value="s1" class="text-muted">&#9734 &#9734
-							&#9734 &#9734 &#9733</option>
-					</select>
-				</div>
-				
-
-				<div class="row finterUL">
 					<%
-						User2DAO user2DAO = new User2DAO();
-					ArrayList<User2> list = user2DAO.getList();
-
-					for (int i = 0; i < list.size(); i++) {
+						int star = 5;
 					%>
-					<div class="col-lg-4 col-md-6 mb-4">
+					<%=session.getAttribute("u_id")%>님 성향의 궁합입니다. <select
+						name="selectBox" id="selectBox1" style="margin-left: 20px"
+						id="filterText">
+						<option value="5" selected class="text-muted">&#9733;
+							&#9733; &#9733; &#9733; &#9733;
+							<%=star = 5%></option>
+						<option value="4" class="text-muted">&#9734; &#9733;
+							&#9733; &#9733; &#9733;
+							<%=star = 4%></option>
+						<option value="3" class="text-muted">&#9734; &#9734;
+							&#9733; &#9733; &#9733;
+							<%=star = 3%></option>
+						<option value="2" class="text-muted">&#9734; &#9734;
+							&#9734; &#9733; &#9733;
+							<%=star = 2%></option>
+						<option value="1" class="text-muted">&#9734; &#9734;
+							&#9734; &#9734; &#9733;
+							<%=star = 1%></option>
+					</select>
+
+				</div>
+
+
+				<div class="row finterUL" id="user_card_side" style="display: none;">
+					<div class="col-lg-4 col-md-6 mb-4" id="user_card">
 						<div class="card h-100">
-							<a href="#"><img class="card-img-top"
-								src="<%=list.get(i).getU_img()%>" alt="" width="200px"
-								height="200px	"></a>
+							<img class="card-img-top" src="" id="uimg" alt="" width="200px"
+								height="200px">
 							<div class="card-body">
 								<h4 class="card-title">
-									<%
-										String u_id = list.get(i).getU_id();
-									%>
-
-									<a href="userInfo.jsp?u_id=<%=u_id %>"> <%=list.get(i).getU_name()%>
-									</a>(<%=list.get(i).getU_age()%>)
+									<a href="" id="uid"> </a> <span id="uage"></span> <span
+										id="ugender"></span>
 								</h4>
-								<h5><%=list.get(i).getU_loc()%></h5>
-								<p class="card-text"><%=list.get(i).getU_hobby()%></p>
-								<p class="card-text"><%=list.get(i).getU_talent()%></p>
+								<h5 id="uloc"></h5>
+								<p class="card-text" id="uhobby"></p>
+								<p class="card-text" id="utalent"></p>
 							</div>
 							<div class="card-footer">
-								<div style="float: left">
-									<%=list.get(i).getU_mbti()%></div>
-								<div style="float: right">
-									<small class="text-muted">&#9733; &#9733; &#9733;
-										&#9733; &#734; </small>
-								</div>
+								<div style="float: left" id="umbti"></div>
 							</div>
 						</div>
 					</div>
-					<%
-						}
-					%>
 				</div>
-				<!-- /.row -->
 
 			</div>
-			<!-- /.col-lg-9 -->
+			<!-- /.row -->
 
 		</div>
-		<!-- /.row -->
+		<!-- /.col-lg-9 -->
+
+	</div>
+	<!-- /.row -->
 
 	</div>
 	<!-- /.container -->
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
-			style="background-color :#78C2AD!important;" >
+		style="background-color: #78C2AD !important;">
 		<div class="contents">
-			<p class="m-0 text-center text-white">Copyright &copy; KTR 
+			<p class="m-0 text-center text-white">Copyright &copy; KTR
 				Website 2020</p>
 		</div>
 		<!-- /.contents -->
 	</footer>
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="./Resource/jquery/jquery.min.js"></script>
 	<script src="./Resource/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

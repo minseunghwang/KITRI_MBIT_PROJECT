@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import user.User2;
 import user.User2DAO;
 
 public class RelationDAO {
@@ -28,21 +29,33 @@ public class RelationDAO {
 		}
 	}
 
-	public ArrayList<Relation> get_RList(String mtype) {
-		String sql_mbti = "select * from relation where r_type1 = (select u_mbti from user_info where u_id = ?)";
-		ArrayList<Relation> list = new ArrayList<Relation>();
+	public ArrayList<User2> get_RList(String mtype, int star) {
+		String sql = "select u_no, u_id, u_pw, u_name, u_gender, u_age, u_loc, u_hobby, u_talent, u_mbti, u_like, UTL_RAW.CAST_TO_VARCHAR2(u_img) from user_info where u_mbti in\r\n" + 
+				"(select r_type2\r\n" + 
+				"from relation \r\n" + 
+				"where r_type1 = (select u_mbti from user_info where u_id = ?) and r_level = ? )";
+		ArrayList<User2> list = new ArrayList<User2>();
 		try {
-			pstmt = conn.prepareStatement(sql_mbti);
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mtype);
+			pstmt.setInt(2, star);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				Relation rel = new Relation();
-				rel.setR_no(rs.getInt(1));
-				rel.setR_type1(rs.getString(2));
-				rel.setR_type2(rs.getString(3));
-				rel.setR_level(rs.getInt(4));
+				User2 user2 = new User2();
+				user2.setU_no(rs.getInt(1));
+				user2.setU_id(rs.getString(2));
+				user2.setU_pw(rs.getString(3));
+				user2.setU_name(rs.getString(4));
+				user2.setU_gender(rs.getString(5));
+				user2.setU_age(rs.getInt(6));
+				user2.setU_loc(rs.getString(7));
+				user2.setU_hobby(rs.getString(8));
+				user2.setU_talent(rs.getString(9));
+				user2.setU_mbti(rs.getString(10));
+				user2.setU_like(rs.getInt(11));
+				user2.setU_img(rs.getString(12));
 
-				list.add(rel);
+				list.add(user2);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
