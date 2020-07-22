@@ -203,7 +203,7 @@
 	</div>
 	<!-- /.container -->
 
-		<%@ include file="Footer.jsp"%>
+	<%@ include file="Footer.jsp"%>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/js/bootstrap.bundle.min.js"></script>
