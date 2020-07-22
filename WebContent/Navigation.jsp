@@ -15,7 +15,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto" style="padding-left:780px">
+    <ul class="navbar-nav mr-auto" style="padding-left:700px">
       <li class="nav-item">
         <a class="nav-link" href="/Project_test/index.jsp">친구목록<span class="sr-only">(current)</span></a>
       </li>
