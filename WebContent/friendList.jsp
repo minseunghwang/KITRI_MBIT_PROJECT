@@ -25,7 +25,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(
-			
 			function() {
 				$('#selectBox1').change(
 						function() {
@@ -96,14 +95,14 @@
 	<%@ include file="Navigation.jsp"%>
 
 	<!-- Page Content -->
-	<div class="container">
+	<div class="container" style="min-height: 100%; margin-top: 100px;">
 		<div class="row">
 			<div class="col-lg-3">
 				<h1 class="my-4">💜MATE💜</h1>
 			</div>
 			<!-- /.col-lg-3 -->
 
-			<div class="col-lg-9">
+			<div class="col-lg-9" style="margin-bottom: 50px;">
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel">
 					<ol class="carousel-indicators">
@@ -146,9 +145,9 @@
 					<%
 						int star = 5;
 					%>
-					<h1><%=session.getAttribute("u_id")%>님 성향의 궁합입니다.</h1>
-					<select
-						name="selectBox" id="selectBox1" style="margin-left: 20px"
+					<h1><%=session.getAttribute("u_id")%>님 성향의 궁합입니다.
+					</h1>
+					<select name="selectBox" id="selectBox1" style="margin-left: 20px"
 						id="filterText">
 						<option value="5" selected class="text-muted">&#9733;
 							&#9733; &#9733; &#9733; &#9733;
@@ -203,7 +202,7 @@
 	</div>
 	<!-- /.container -->
 
-		<%@ include file="Footer.jsp"%>
+	<%@ include file="Footer.jsp"%>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/js/bootstrap.bundle.min.js"></script>
