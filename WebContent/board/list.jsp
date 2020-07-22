@@ -4,7 +4,9 @@
 <%@ page import="user.User2DAO"%>
 <%@ page import="user.User2"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.*" %>
 <%@page import="java.sql.*"%>
+<%@ page import="board.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,26 +22,6 @@
 <!-- Bootstrap core CSS -->
 <link href="../Resource/css/bootstrap.min.css" rel="stylesheet">
 <link href="../Resource/css/bootstrap.css" rel="stylesheet">
-
-
-<%
-	String driverName = "oracle.jdbc.driver.OracleDriver";
-	String DB_URL = "jdbc:oracle:thin:@192.168.0.3:1521:XE";
-	String DB_USER = "c##team4";
-	String DB_PASSWORD = "min";
-	String selectList = "SELECT b_no, b_title, u_id, b_hit, "
-			+ "case to_char(b_date, 'yy/mm/dd') when to_char(sysdate, 'yy/mm/dd') then to_char(b_date,'hh24:mi:ss') else to_char(b_date,'yy/mm/dd') end regdate "
-			+ "from board order by b_no desc";
-	try {
-		Class.forName(driverName);
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
-	
-	try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-			PreparedStatement pstmt = conn.prepareStatement(selectList);
-			ResultSet rs = pstmt.executeQuery(selectList);) {
-%>
 
 </head>
 <body>
@@ -89,26 +71,95 @@
 			</thead>
 			<tbody>
 				<%
-					while (rs.next()) {
-					out.print("<tr onclick=\"location.href = \'content.jsp?no=" + rs.getString("b_no") + "\'\"" + ">");
-					out.print("<td class='text-center'>" + rs.getString("b_no") + "</td> ");
-					out.print("<td class='text-left'>" + rs.getString("b_title") + "</td> ");
-					out.print("<td class='text-center'>" + rs.getString("u_id") + "</td> ");
-					out.print("<td class='text-center'>" + rs.getString("regdate") + "</td> ");
-					out.print("<td class='text-center'>" + rs.getString("b_hit") + "</td> ");
+				String pageParam=request.getParameter("page");
+				int boardSize = 15;
+				int pageSize = 5;
+				int start = 1;
+				int totalRows = BoardDAO.getTotalRows();
+				int totalPages = totalRows % boardSize == 0 ? totalRows / boardSize : (totalRows / boardSize) + 1;
+				if(totalPages == 0) {
+	    			totalPages = 1;
+	    		}
+				if(pageParam == null || pageParam.length() == 0 || Integer.parseInt(pageParam) > totalPages) {
+					pageParam = "1";
+				}
+				int cPage=Integer.parseInt(pageParam);  
+				  
+				if(cPage!=1){
+					start = (cPage - 1) * boardSize + 1;  
+				}  
+				
+				int currentBlock = cPage % pageSize == 0 ? cPage / pageSize : (cPage / pageSize) + 1;
+				int startPage = (currentBlock - 1) * pageSize + 1;
+				int endPage = startPage + pageSize - 1;
+				
+				if(endPage > totalPages) {
+					endPage = totalPages;
+				}
+				
+				List<Board> list=BoardDAO.getRows(start, start + boardSize - 1);  
+					for(Board b:list) {
+					out.print("<tr onclick=\"location.href = \'content.jsp?no=" + b.getNo() + "\'\"" + ">");
+					out.print("<td class='text-center'>" + b.getNo() + "</td> ");
+					out.print("<td class='text-left'>" + b.getTitle() + "</td> ");
+					out.print("<td class='text-center'>" + b.getId() + "</td> ");
+					out.print("<td class='text-center'>" + b.getDate() + "</td> ");
+					out.print("<td class='text-center'>" + b.getHit() + "</td> ");
 					out.print("</tr>");
 				}
 				%>
 
 			</tbody>
 		</table>
-		<%
-			} catch (Exception e) {
-			out.println("Oracle Database Connection Problem <hr>");
-			out.println(e.getMessage());
-			e.printStackTrace();
-		}
-		%>
+		<nav aria-label="Page navigation example">
+  			<ul class="pagination justify-content-center">
+				<%
+				    if (startPage == 1) {
+				%>
+				<li class="page-item disabled"><a class="page-link" href="#"
+				    tabindex="-1" aria-disabled="true">Previous</a></li>
+				<%
+				    } else {
+				%>
+				<li class="page-item"><a class="page-link"
+				    href="list.jsp?page=<%=startPage - 1%>" tabindex="-1"
+				    aria-disabled="true">Previous</a></li>
+				<%
+				    }
+				%>
+				<%
+				    for (int i = startPage; i <= endPage; i++) {
+				   		if(i == cPage) {
+				%>
+				    	<li class="page-item active">
+						<a class="page-link" href="list.jsp?page=<%=i %>"><%=i%></a></li>
+				<%
+				    	} else {
+				%>
+						<li class="page-item">
+						<a class="page-link" href="list.jsp?page=<%=i %>"><%=i%></a></li>
+				<%
+						} 
+				%>	
+					
+				<%
+				    }
+				%>
+				<%
+				    // 마지막 페이지 숫자와 startPage에서 pageLength 더해준 값이 일치할 때(즉 마지막 페이지 블럭일 때)
+				    if (totalPages == endPage) {
+				%>
+				<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+				<%
+				    } else {
+				%>
+				<li class="page-item"><a class="page-link"
+				    href="list.jsp?page=<%=endPage + 1%>">Next</a></li>
+				<%
+				    }
+				%>
+			</ul>
+		</nav>
 	</div>
 	<!-- /.container -->
 
