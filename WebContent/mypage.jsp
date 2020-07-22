@@ -62,8 +62,6 @@
 					data-ride="carousel" style="text-align: -webkit-center;">
 
 					<div class="card-body col-lg-5">
-					
-						
 
 							<h3 style="text-align: center;">회원정보 수정</h3>
 							
@@ -108,13 +106,11 @@
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="나이 "
-									value="<%=list.get(0).getU_age()%>" name="u_age"
-									maxlength="20">
+									value="<%=list.get(0).getU_age()%>" name="u_age" maxlength="20">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="주소"
-									value="<%=list.get(0).getU_loc()%>" name="u_loc"
-									maxlength="20">
+									value="<%=list.get(0).getU_loc()%>" name="u_loc" maxlength="20">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="취미"
@@ -130,8 +126,7 @@
 							<div>
 								<select id="selectBox" name="u_mbti"
 									style="margin-bottom: 15px; padding: 5px; width: 300px">
-									<option value="<%=list.get(0).getU_mbti()%>">나의 유형 :
-										<%=list.get(0).getU_mbti()%>
+									<option value="<%=list.get(0).getU_mbti()%>">나의 유형 :<%=list.get(0).getU_mbti()%>
 									</option>
 									<option value="INTJ">INTJ</option>
 									<option value="INTP">INTP</option>
@@ -168,15 +163,10 @@
 	</div>
 	<!-- /.container -->
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark"
-		style="bottom: 0; width: 100%; background-color: #78C2AD !important;">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; KTR
-				Website 2020</p>
-		</div>
-		<!-- /.container -->
 	</footer>
+
+	<%@ include file="Footer.jsp"%>
+
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>

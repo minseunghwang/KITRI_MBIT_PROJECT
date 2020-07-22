@@ -8,7 +8,7 @@
 
 <!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/Project_test/login.jsp" style="padding-left:400px">MBTI MATE</a>
+  <a class="navbar-brand" href="/login.jsp" style="padding-left:400px">MBTI MATE</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" 
   aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -17,16 +17,16 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto" style="padding-left:700px">
       <li class="nav-item">
-        <a class="nav-link" href="/Project_test/index.jsp">친구목록<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/index.jsp">친구목록<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Project_test/board/list.jsp">게시판</a>
+        <a class="nav-link" href="/board/list.jsp">게시판</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Project_test/mypage.jsp">회원정보</a>
+        <a class="nav-link" href="/mypage.jsp">회원정보</a>
       </li>
             <li class="nav-item">
-        <a class="nav-link" href="/Project_test/logoutAction.jsp">로그아웃</a>
+        <a class="nav-link" href="/logoutAction.jsp">로그아웃</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

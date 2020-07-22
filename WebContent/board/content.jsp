@@ -149,15 +149,7 @@ try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)
 	</div>
 	<!-- /.container -->
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark"
-		style="background-color: :#78C2AD !important;">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; KTR
-				Website 2020</p>
-		</div>
-		<!-- /.container -->
-	</footer>
+	<%@ include file="../Footer.jsp"%>
 
 
 
