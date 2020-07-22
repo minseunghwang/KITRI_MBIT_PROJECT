@@ -26,7 +26,7 @@
 		String u_id = null;
 		if(session.getAttribute("u_id") != null){
 			u_id = (String) session.getAttribute("u_id");
-		}
+		} 
 		if(u_id != null){
 			session.setAttribute("u_id",user.getU_id());
 			PrintWriter script = response.getWriter();
@@ -52,7 +52,7 @@
 				script.println("</script>");
 			}
 			else{
-				session.setAttribute("userID",user.getU_id());
+				session.setAttribute("u_id",user.getU_id());
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('회원가입이 완료되었습니다.')");
