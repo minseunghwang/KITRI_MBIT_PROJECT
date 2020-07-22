@@ -19,9 +19,8 @@
 
 <!-- Bootstrap core CSS -->
 <link href="../Resource/css/bootstrap.min.css" rel="stylesheet">
+<link href="../Resource/css/bootstrap.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="../Resource/css/shop-homepage.css" rel="stylesheet">
 <%
 	String b_no = request.getParameter("no");
 	String driverName = "oracle.jdbc.driver.OracleDriver"; 
@@ -43,30 +42,32 @@
 
 </head>
 <body>
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-			style="background-color :#8dffdb !important";>
-		<div class="container">
-			<a class="navbar-brand" href="#">MBTI MATE</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarResponsive" aria-controls="navbarResponsive"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link"
-						href="/Project_test/index.jsp">Home <span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">About</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Services</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/Project_test/index.jsp" style="padding-left:400px">MBTI MATE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" 
+  aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto" style="padding-left:780px">
+      <li class="nav-item">
+        <a class="nav-link" href="/Project_test/index.jsp">친구목록<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/Project_test/board/list.jsp">게시판</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Project_test/mypage.jsp">회원정보</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="친구 찾기">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>
+    </form>
+  </div>
+</nav>
 
 	<!-- Page Content -->
 	<div class="container">
@@ -86,8 +87,7 @@
 				<input type="hidden" name="b_no" value="<%=b_no %>">
 			</div>
 			<div align="right">
-				<button class="btn btn-outline-primary" 
-				style="background-color: #ffa28d; border-color: #ffa28d"; type="submit">등록</button>
+				<button class="btn btn-secondary" type="submit">등록</button>
 			</div>
 		</form>
 		<%}
@@ -102,7 +102,7 @@
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
-		style="background-color : #ffdb8d !important;">
+		style="background-color ::#78C2AD !important;">
 		<div class="container">
 			<p class="m-0 text-center text-white">Copyright &copy; KTR 
 				Website 2020</p>

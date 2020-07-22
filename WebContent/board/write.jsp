@@ -66,8 +66,7 @@
 					value="<%=session.getAttribute("u_id")%>">
 					</div>
 			<div align="right">
-				<button class="btn btn-outline-primary" 
-				style="background-color: #ffa28d; border-color: #ffa28d"; type="submit">등록</button>
+				<button class="btn btn-secondary" type="submit">등록</button>
 			</div>
 		</form>
 	</div>
