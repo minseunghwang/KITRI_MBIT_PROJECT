@@ -25,6 +25,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(
+			
 			function() {
 				$('#selectBox1').change(
 						function() {
@@ -202,15 +203,7 @@
 	</div>
 	<!-- /.container -->
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark"
-		style="background-color: #78C2AD !important;">
-		<div class="contents">
-			<p class="m-0 text-center text-white">Copyright &copy; KTR
-				Website 2020</p>
-		</div>
-		<!-- /.contents -->
-	</footer>
+		<%@ include file="Footer.jsp"%>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/js/bootstrap.bundle.min.js"></script>

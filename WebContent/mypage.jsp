@@ -98,13 +98,11 @@
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="나이 "
-									value="<%=list.get(0).getU_age()%>" name="u_age"
-									maxlength="20">
+									value="<%=list.get(0).getU_age()%>" name="u_age" maxlength="20">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="주소"
-									value="<%=list.get(0).getU_loc()%>" name="u_loc"
-									maxlength="20">
+									value="<%=list.get(0).getU_loc()%>" name="u_loc" maxlength="20">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="취미"
@@ -161,15 +159,8 @@
 	</div>
 	<!-- /.container -->
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark"
-		style="position: absolute; bottom: 0; width: 100%; background-color: #78C2AD !important;">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; KTR
-				Website 2020</p>
-		</div>
-		<!-- /.container -->
-	</footer>
+	<%@ include file="Footer.jsp"%>
+
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>
