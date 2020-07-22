@@ -85,6 +85,7 @@
 					data-ride="carousel" style="text-align: -webkit-center;">
 
 					<div class="card-body col-lg-5">
+					
 						<form method="post" action="updateAction.jsp">
 
 							<h3 style="text-align: center;">회원정보 수정</h3>
@@ -153,15 +154,18 @@
 								<option value="ESFP">ESFP</option>
 							</select>
 							</div>
-
-								<span class="btn btn-file" style="margin-bottom: 15px;">
-									프로필 사진을 업로드하세요 <input type="file" name="u_img">
-								</span>  
+							
+						<input type="submit" class="btn btn-secondary form-control" value="수정하기" style="margin-bottom:10px;">
+						</form> 
+							 
+														
+								<form action="upload.jsp" method="post" enctype="multipart/form-data">
+								<input type="file" name="file"><br> 
+								<input type="submit" class="btn btn-outline-secondary form-control" value="사진 등록">
+								</form>
 							
 							
-							<input type="submit" class="btn btn-secondary form-control" value="수정하기">
 
-						</form>
 					</div>
 
 				</div>

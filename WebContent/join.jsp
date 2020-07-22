@@ -23,6 +23,7 @@
 <!-- Custom styles for this template -->
 <link href="./Resource/css/custom.css" rel="stylesheet">
 
+
 <script language="javascript">
 	var selectBox = document.getElementById("selectBox");
 	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
