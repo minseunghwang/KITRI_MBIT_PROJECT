@@ -168,27 +168,6 @@ public class User2DAO {
 		return list;
 	}
 	
-	
-//	public int profile(String userID, String u_img) {
-//		String SQL = "UPDATE USER SET u_img=? WHERE u_id=? ";
-//		try {
-//			pstmt = conn.prepareStatement(SQL);
-//			pstmt.setString(1, userID);
-//			pstmt.setString(2, u_img);
-//			return pstmt.executeUpdate();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}finally {
-//			try {
-//				if(pstmt != null) pstmt.close();
-//				if(conn != null) conn.close();
-//			} catch(Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		return -1;
-//	}
-	
 	public int update(User2 user) {
 		String SQL = "UPDATE USER_INFO SET u_pw=?,u_name=?, u_gender=?, u_age=?, u_loc=?, u_hobby=?, u_talent=?, u_mbti=? WHERE u_id=?";
 		try {
