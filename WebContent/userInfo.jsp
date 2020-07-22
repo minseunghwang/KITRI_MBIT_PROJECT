@@ -29,53 +29,105 @@
 		script.println("</script>");
 	}
 	%>
-	<%@ include file="Navigation.jsp"%>
+	<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/Project_test/index.jsp" style="padding-left:400px">MBTI MATE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" 
+  aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto" style="padding-left:780px">
+      <li class="nav-item">
+        <a class="nav-link" href="/Project_test/index.jsp">친구목록<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Project_test/board/list.jsp">게시판</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/Project_test/mypage.jsp">회원정보</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="친구 찾기">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>
+    </form>
+  </div>
+</nav>
 
 	<!-- Page Content -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3">
+	<div class="row" style="justify-content: center; text-align-last: start;">
+	<div class="col-lg-9">
+	<div class="card mb-3">
 				<%
 					String u_id = request.getParameter("u_id");
 				%>
-				<h1 class="my-4"><%=u_id%>님의 페이지입니다.
-				</h1>
-			</div>
-			<!-- /.col-lg-3 -->
+  <h1 class="card-header" style="text-align-last: center;"><%=u_id%>님의 페이지입니다!!</h1>
+    <div class="card-body">
+    <h5 class="card-title" style="text-align-last: center;"> 
+    					<%
+						User2DAO user2DAO = new User2DAO();
+					ArrayList<User2> list = user2DAO.getUserinfo(u_id);
+					%>
+					
+							<%=list.get(0).getU_name().trim()%>
+							(<%=list.get(0).getU_age()%>)
+							<%
+								String p_gender = (String) list.get(0).getU_gender().trim();
+							if ("여자".equals(p_gender)) {
+							%>
+							♀		<%
+								} else if ("남자".equals(p_gender)) {
+							%>
+							♂	<%
+								}
+							%>
+    </h5> 
+    <h6 class="card-subtitle text-muted" style="text-align-last: center;"> <%=list.get(0).getU_mbti()%> ! </h6>
+  </div>
+  
+  <img class="card-img-top" src="<%=list.get(0).getU_img()%>">
+  
+  <div class="card-body">
+  	<p class="card-text">지역: <%=list.get(0).getU_loc()%> !</p>
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">성별: <%=list.get(0).getU_gender()%> ! </li>
+    <li class="list-group-item">취미: <%=list.get(0).getU_hobby()%>  !</li>
+    <li class="list-group-item">특기: <%=list.get(0).getU_talent()%> ! </li>
+  </ul>
+  
+  <div class="card-body">
+    <a href="#" class="card-link">instagram link 클릭 1번</a>
+    <a href="#" class="card-link">facebook link 클릭 2번</a>
+  </div>
+  
+  <div class="card-footer text-muted">
+    마지막 접속일 2 days ago
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">하단 박스입니다~~~ 제목~~</h4>
+    <h6 class="card-subtitle mb-2 text-muted">내용 1번 ㅇ아아ㅏ아아아ㅏ아!!!!@@!!@!@@!!@</h6>
+    <p class="card-text">내용 2번 구구젉절~~~~~~~~</p>
+    
+    <a href="#" class="card-link"> 친구신청 </a>
+    <a href="#" class="card-link"> 쪽지보내기 </a>
+  </div>
+</div>
+
 
 			<div class="col-lg-9">
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel">
-					<%
-						User2DAO user2DAO = new User2DAO();
-					ArrayList<User2> list = user2DAO.getUserinfo(u_id);
-					%>
 					<div class="card-body">
 						<h4 class="card-title">
 							<img class="card-img-top" src="<%=list.get(0).getU_img()%>">
-							<p>
-								<%=list.get(0).getU_name().trim()%>
-								(<%=list.get(0).getU_age()%>)
-								<%
-									String p_gender = (String) list.get(0).getU_gender().trim();
-								if ("여자".equals(p_gender)) {
-								%>
-								♀
-								<%
-									} else if ("남자".equals(p_gender)) {
-								%>
-								♂
-								<%
-									}
-								%>
-							
 						</h4>
-						<p class="card-text"><%=list.get(0).getU_loc()%></p>
-						<p class="card-text"><%=list.get(0).getU_hobby()%></p>
-						<p class="card-text"><%=list.get(0).getU_talent()%></p>
-						<p class="card-text"><%=list.get(0).getU_mbti()%></p>
-						<p class="card-text"><%=list.get(0).getU_gender()%></p>
 					</div>
 				</div>
 
@@ -96,8 +148,19 @@
 	</div>
 	<!-- /.container -->
 
-	<%@ include file="Footer.jsp"%>
 
+
+
+
+	<!-- Footer -->
+	<footer class="py-5 bg-dark"
+			style="background-color : #78C2AD  !important;" >
+		<div class="contents">
+			<p class="m-0 text-center text-white">Copyright &copy; KTR 
+				Website 2020</p>
+		</div>
+		<!-- /.contents -->
+	</footer>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>
