@@ -29,32 +29,8 @@
 		script.println("</script>");
 	}
 	%>
-	<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/Project_test/index.jsp" style="padding-left:400px">MBTI MATE</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" 
-  aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+	<%@ include file="Navigation.jsp"%>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto" style="padding-left:780px">
-      <li class="nav-item">
-        <a class="nav-link" href="/Project_test/index.jsp">친구목록<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Project_test/board/list.jsp">게시판</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/Project_test/mypage.jsp">회원정보</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="친구 찾기">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>
-    </form>
-  </div>
-</nav>
 
 	<!-- Page Content -->
 	<div class="container">
@@ -79,20 +55,21 @@
 						<h4 class="card-title">
 							<img class="card-img-top" src="<%=list.get(0).getU_img()%>">
 							<p>
-							<%=list.get(0).getU_name().trim()%>
-							(<%=list.get(0).getU_age()%>)
-							<%
-								String p_gender = (String) list.get(0).getU_gender().trim();
-							if ("여자".equals(p_gender)) {
-							%>
-							♀
+								<%=list.get(0).getU_name().trim()%>
+								(<%=list.get(0).getU_age()%>)
 								<%
-								} else if ("남자".equals(p_gender)) {
-							%>
-							♂
-							<%
-								}
-							%>
+									String p_gender = (String) list.get(0).getU_gender().trim();
+								if ("여자".equals(p_gender)) {
+								%>
+								♀
+								<%
+									} else if ("남자".equals(p_gender)) {
+								%>
+								♂
+								<%
+									}
+								%>
+							
 						</h4>
 						<p class="card-text"><%=list.get(0).getU_loc()%></p>
 						<p class="card-text"><%=list.get(0).getU_hobby()%></p>
@@ -121,9 +98,9 @@
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
-			style="background-color : #78C2AD  !important;" >
+		style="background-color: #78C2AD !important;">
 		<div class="contents">
-			<p class="m-0 text-center text-white">Copyright &copy; KTR 
+			<p class="m-0 text-center text-white">Copyright &copy; KTR
 				Website 2020</p>
 		</div>
 		<!-- /.contents -->

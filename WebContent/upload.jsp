@@ -38,11 +38,6 @@ try {
 	// request,파일저장경로,용량,인코딩타입,중복파일명에 대한 기본 정책 
 	multi = new MultipartRequest(request, uploadPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
 
-	// form내의 input name="name" 인 녀석 value를 가져옴 
-	name = multi.getParameter("name");
-	// name="subject" 인 녀석 value를 가져옴 
-	subject = multi.getParameter("subject");
-
 	// 전송한 전체 파일이름들을 가져옴 
 	//Enumeration files = multi.getFileNames(); 
 	file = multi.getFile("file");
@@ -76,22 +71,30 @@ try {
 	User2DAO user2DAO = new User2DAO();
 	ArrayList<User2> list = user2DAO.getUserinfo((String) session.getAttribute("u_id"));
 
-	String sql = new String("UPDATE USER_INFO SET UTL_RAW.CAST_TO_RAW(u_img)=? where u_id=?");
+	String sql = new String("UPDATE USER_INFO SET u_img=UTL_RAW.CAST_TO_RAW(?) where u_id=?");
 	try{
 		psmt = conn.prepareStatement(sql);
-		psmt.setString(1,(String)file.getPath());
-		psmt.setString(2, list.get(0).getU_id());
+		psmt.setString(1,file.getName());
+		psmt.setString(2,list.get(0).getU_id());
 		
 		psmt.executeUpdate();
 	} catch (Exception e) {
 		e.printStackTrace();
-		System.out.println("여기서에러");
 	} 
 	
 } catch (Exception e) {
 	e.printStackTrace();
-	System.out.println("저기서에러");
 }
+
+
+
+PrintWriter script = response.getWriter();
+script.println("<script>");
+script.println("alert('프로필 사진이 등록되었습니다.')");
+script.println("location.href = 'mypage.jsp'");
+script.println("</script>");
+
+
 %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

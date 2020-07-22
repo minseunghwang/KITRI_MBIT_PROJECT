@@ -31,32 +31,8 @@
 		script.println("</script>");
 	}
 	%>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#" style="padding-left:400px">MBTI MATE</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" 
-  aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto" style="padding-left:780px">
-      <li class="nav-item">
-        <a class="nav-link" href="/Project_test/index.jsp">친구목록<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Project_test/board/list.jsp">게시판</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Project_test/mypage.jsp">회원정보</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="친구 찾기">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>
-    </form>
-  </div>
-</nav>
+	
+	<%@ include file="Navigation.jsp"%>
 
 	<!-- Page Content -->
 	<div class="container">
@@ -70,7 +46,9 @@
 
 					<div class="card-body col-lg-5">
 						<form method="post" action="loginAction.jsp">
-							<h3 style="text-align: center; margin-top:50px; margin-bottom:30px;"> 🙋🏻‍♀️ 환영합니다 🙋🏻‍♀️  </h3>
+							<h3
+								style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
+								🙋🏻‍♀️ 환영합니다 🙋🏻‍♀️</h3>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="아이디"
 									name="u_id" maxlength="20">
@@ -101,9 +79,9 @@
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
-			style="position: absolute; bottom: 0; width: 100%; background-color : #78C2AD !important;" >
+		style="position: absolute; bottom: 0; width: 100%; background-color: #78C2AD !important;">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; KTR 
+			<p class="m-0 text-center text-white">Copyright &copy; KTR
 				Website 2020</p>
 		</div>
 		<!-- /.container -->
