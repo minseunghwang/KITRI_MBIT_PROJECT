@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="../sessionCheck.jsp" %>
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +21,6 @@
 <!-- Bootstrap core CSS -->
 <link href="../Resource/css/bootstrap.min.css" rel="stylesheet">
 <link href="../Resource/css/bootstrap.css" rel="stylesheet">
-
 
 <%
 	String b_no = request.getParameter("no");
