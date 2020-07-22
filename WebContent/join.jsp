@@ -33,8 +33,7 @@
 
 </head>
 <body>
-	
-
+	<%@ include file="Navigation.jsp"%>
 	<!-- Page Content -->
 	<div class="container">
 		<div class="row" style="position: relative;">
@@ -46,93 +45,92 @@
 					data-ride="carousel" style="text-align: -webkit-center;">
 
 					<div class="card-body col-lg-5">
-					
+
 						<form method="post" action="joinAction.jsp">
 
-								<h3 style="text-align: center;">회원가입</h3>
+							<h3 style="text-align: center;">회원가입</h3>
 
 
-								<div class="form-group">
-									<input type="text" class="form-control"
-										placeholder="아이디 : 3~12자 영문 소문자" name="u_id" maxlength="20">
-								</div>
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="아이디 : 3~12자 영문 소문자" name="u_id" maxlength="20">
+							</div>
 
-								<div class="form-group">
-									<input type="password" class="form-control"
-										placeholder="비밀번호 : 3~12자 숫자" name="u_pw" maxlength="20">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="이름"
-										name="u_name" maxlength="20">
-								</div>
-										
+							<div class="form-group">
+								<input type="password" class="form-control"
+									placeholder="비밀번호 : 3~12자 숫자" name="u_pw" maxlength="20">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="이름"
+									name="u_name" maxlength="20">
+							</div>
+
 							<div class="form-group" style="text-align: center;">
 								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-secondary">
-									<input type="radio" name="u_gender" autocomplete="off" value="남자">남자
-									</label> 
-									<label class="btn btn-secondary"> 
-									<input type="radio" name="u_gender" autocomplete="off" value="여자">여자
+									<label class="btn btn-secondary"> <input type="radio"
+										name="u_gender" autocomplete="off" value="남자">남자
+									</label> <label class="btn btn-secondary"> <input type="radio"
+										name="u_gender" autocomplete="off" value="여자">여자
 									</label>
 								</div>
 							</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="나이"
-										name="u_age" maxlength="20">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control"
-										placeholder="주소 ex)서울시 서초구, 강원도 강릉시" name="u_loc"
-										maxlength="20">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control"
-										placeholder="취미 ex)자전거타기" name="u_hobby" maxlength="20">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control"
-										placeholder="특기 ex)요리, 축구" name="u_talent" maxlength="20">
-								</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="나이"
+									name="u_age" maxlength="20">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="주소 ex)서울시 서초구, 강원도 강릉시" name="u_loc"
+									maxlength="20">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="취미 ex)자전거타기" name="u_hobby" maxlength="20">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control"
+									placeholder="특기 ex)요리, 축구" name="u_talent" maxlength="20">
+							</div>
 
-								<div>
-									<select id="selectBox" name="u_mbti"
-										style="margin-bottom: 15px; padding: 5px; width: 300px">
-										<option value="">MBTI 유형 선택하기</option>
-										<option value="INTJ">INTJ</option>
-										<option value="INTP">INTP</option>
-										<option value="ENTJ">ENTJ</option>
-										<option value="ENTP">ENTP</option>
-										<option value="INFJ">INFJ</option>
-										<option value="INFP">INFP</option>
-										<option value="ENFJ">ENFJ</option>
-										<option value="ENFP">ENFP</option>
-										<option value="ISTJ">ISTJ</option>
-										<option value="ISFJ">ISFJ</option>
-										<option value="ESTJ">ESTJ</option>
-										<option value="ESFJ">ESFJ</option>
-										<option value="ISTP">ISTP</option>
-										<option value="ISFP">ISFP</option>
-										<option value="ESTP">ESTP</option>
-										<option value="ESFP">ESFP</option>
-									</select>
-								</div>
+							<div>
+								<select id="selectBox" name="u_mbti"
+									style="margin-bottom: 15px; padding: 5px; width: 300px">
+									<option value="">MBTI 유형 선택하기</option>
+									<option value="INTJ">INTJ</option>
+									<option value="INTP">INTP</option>
+									<option value="ENTJ">ENTJ</option>
+									<option value="ENTP">ENTP</option>
+									<option value="INFJ">INFJ</option>
+									<option value="INFP">INFP</option>
+									<option value="ENFJ">ENFJ</option>
+									<option value="ENFP">ENFP</option>
+									<option value="ISTJ">ISTJ</option>
+									<option value="ISFJ">ISFJ</option>
+									<option value="ESTJ">ESTJ</option>
+									<option value="ESFJ">ESFJ</option>
+									<option value="ISTP">ISTP</option>
+									<option value="ISFP">ISFP</option>
+									<option value="ESTP">ESTP</option>
+									<option value="ESFP">ESFP</option>
+								</select>
+							</div>
 
-								<span class="btn btn-default btn-file" style="margin-bottom: 15px;">
-									프로필 사진을 업로드하세요 <input type="file" name="u_img">
-								</span> 
-							
-							<input type="submit" class="btn btn-secondary form-control" value="회원가입">
+							<span class="btn btn-default btn-file"
+								style="margin-bottom: 15px;"> 프로필 사진을 업로드하세요 <input
+								type="file" name="u_img">
+							</span> <input type="submit" class="btn btn-secondary form-control"
+								value="회원가입">
 						</form>
-					</div>	
 					</div>
 				</div>
-				</div>
-
-			<!-- /.col-lg-9 -->
-
-			<div class="col-lg-1"></div>
+			</div>
 		</div>
-		<!-- /.row -->
+
+		<!-- /.col-lg-9 -->
+
+		<div class="col-lg-1"></div>
+	</div>
+	<!-- /.row -->
 
 	</div>
 
@@ -143,9 +141,9 @@
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark"
-		style="position: absolute; bottom: 0; width: 100%; background-color : #78C2AD !important;" >
+		style="position: absolute; bottom: 0; width: 100%; background-color: #78C2AD !important;">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; KTR 
+			<p class="m-0 text-center text-white">Copyright &copy; KTR
 				Website 2020</p>
 		</div>
 		<!-- /.container -->

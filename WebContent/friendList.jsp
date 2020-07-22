@@ -92,17 +92,13 @@
 <body>
 
 
-	<%@ include file="Navigation.jsp" %>
+	<%@ include file="Navigation.jsp"%>
 
 	<!-- Page Content -->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
 				<h1 class="my-4">💜MATE💜</h1>
-				<div class="list-group">
-					<a href="board/list.jsp" class="list-group-item">게시판</a> <a
-						href="mypage.jsp" class="list-group-item">마이페이지(수정)</a>
-				</div>
 			</div>
 			<!-- /.col-lg-3 -->
 
@@ -149,7 +145,8 @@
 					<%
 						int star = 5;
 					%>
-					<%=session.getAttribute("u_id")%>님 성향의 궁합입니다. <select
+					<h1><%=session.getAttribute("u_id")%>님 성향의 궁합입니다.</h1>
+					<select
 						name="selectBox" id="selectBox1" style="margin-left: 20px"
 						id="filterText">
 						<option value="5" selected class="text-muted">&#9733;
