@@ -46,7 +46,7 @@
 
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel" style="text-align: -webkit-center;">
-					<img src="logo\mbti_logo2.png" style="margin-bottom: 30px;">
+					<img src="logo\mbti_logo3.png" style="margin-bottom: 30px;">
 					<div class="card-body col-lg-5">
 						<form method="post" action="loginAction.jsp">
 							<div class="form-group">

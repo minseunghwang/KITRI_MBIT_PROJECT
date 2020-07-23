@@ -40,7 +40,7 @@
 				<%
 					String u_id = request.getParameter("u_id");
 				%>
-  <h1 class="card-header" style="text-align-last: center;"> 🏠 <%=u_id%>님의 홈피 🏠 </h1>
+  <h1 class="card-header" style="text-align-last: center;">  🏠 <%=u_id%>님의 홈  </h1>
     <div class="card-body">
     <h5 class="card-title" style="text-align-last: center;"> 
     					<%
@@ -87,7 +87,7 @@
 
 <div class="card" style="background-color: whitesmoke;">
   <div class="card-body">
-    <h4 class="card-title"> 🌷 자기소개 🌷  </h4>
+    <h4 class="card-title">  자기소개   </h4>
     <h6 class="card-subtitle mb-2 text-muted"> 
     
     서울 사는 							
