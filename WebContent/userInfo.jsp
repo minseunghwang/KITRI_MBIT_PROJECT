@@ -73,7 +73,7 @@ mini_logo {
 				</h1>
 				<div class="card-body" style="align-self: center;">
 					<img src="./upload/<%=list.get(0).getU_img()%>" width=512
-						height=384 style="align-self: center; margin-bottom: 50px;"></img>
+						height=384 style="align-self: center; margin-bottom: 50px; border-radius: 0.5em;"></img>
 
 					<div class="info">
 						<ul class="list-group list-group-flush">
@@ -102,7 +102,7 @@ mini_logo {
 			</div>
 
 			<div class="card" style="background-color: whitesmoke;">
-				<div class="card-body">
+				<div class="card-body" style="margin: 10px;">
 					<h4 class="card-title">
 						<mini_logo>🌷</mini_logo>
 						자기소개
@@ -126,8 +126,8 @@ mini_logo {
 						입니다. 잘부탁드립니다.
 					</p>
 
-					<a href="#" class="card-link"> ✔ 친구신청 </a> <a href="#"
-						class="card-link"> ✔ 쪽지보내기 </a>
+					<a href="#" class="card-link"><img src="./logo/friendplus1.jpg" style="height:20px"> 친구신청 </a> <a href="#"
+						class="card-link"><img src="./logo/message2.jpg" style="height:20px"> 쪽지보내기 </a>
 				</div>
 			</div>
 
