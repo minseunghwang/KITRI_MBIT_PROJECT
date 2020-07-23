@@ -31,7 +31,7 @@
 		script.println("</script>");
 	}
 	%>
-
+<body style="background-color: antiquewhite";>
 	<%@ include file="Navigation.jsp"%>
 
 	<!-- Page Content -->

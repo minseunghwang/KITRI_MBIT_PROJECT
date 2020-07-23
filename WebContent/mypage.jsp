@@ -25,7 +25,7 @@
 <link href="./Resource/css/custom.css" rel="stylesheet">
 
 </head>
-<body>
+<body style="background-color: antiquewhite";>
 
 	<%@ include file="Navigation.jsp"%>
 
