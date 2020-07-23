@@ -34,7 +34,10 @@ mini_logo {
 .list-group-item1{
     background-color: #ffeced;
     border-radius : 10px 10px 10px 10px;
+    
 }
+
+
 </style>
 
 <body>
@@ -86,9 +89,9 @@ mini_logo {
 							</li>
 						</ul>
 					</div>
-					<div class="card-body">
-						<a href="#" class="card-link"> 💌 instagram link </a> <a href="#"
-							class="card-link"> 🌏 facebook link </a>
+					<div class="card-body" style="padding-left: 5px;" >
+						<a href="#" class="card-link" style="font-family: initial;"><img src="./logo/instargram.jpg" style="height:20px"> instagram link </a>
+						<a href="#"	class="card-link" style="font-family: initial;"><img src="./logo/facebook.jpg" style="height:20px"> facebook link </a>
 					</div>
 				</div>
 
