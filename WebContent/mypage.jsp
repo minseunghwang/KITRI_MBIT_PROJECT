@@ -5,8 +5,11 @@
 <%@ page import="user.User2"%>
 <%@ page import="java.util.ArrayList"%>
 
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport"
@@ -161,8 +164,6 @@
 
 	</div>
 	<!-- /.container -->
-
-	</footer>
 
 	<%@ include file="Footer.jsp"%>
 
