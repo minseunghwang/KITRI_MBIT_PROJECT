@@ -72,7 +72,7 @@
 							<img src="./upload/<%=list.get(0).getU_img()%>" style="margin-top:10px;" width=150 height=150></img>
 							
 								<form action="upload.jsp" method="post" enctype="multipart/form-data">
-								<span class="btn btn-default" style="margin-left:27%;"><input type="file" name="file" style="color:antiquewhite;"></span>
+								<span class="btn btn-default" style="margin-left:100px;"><input type="file" name="file" style="color:antiquewhite;"></span>
 								<input type="submit" class="btn btn-outline-secondary form-control" value="사진 등록" style="margin-bottom:30px;">
 								</form>
 					
