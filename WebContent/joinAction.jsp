@@ -35,10 +35,10 @@
 			script.println("locatin.href = 'friendList.jsp'");
 			script.println("</script>");
 		}
-		if(user.getU_id() == null || user.getU_pw() == null){
+		if(user.getU_id() == null || user.getU_pw() == null || user.getU_name() == null || user.getU_gender() == null || user.getU_hobby() == null || user.getU_loc() == null || user.getU_talent() == null){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('아이디와 비밀번호를 입력해주세요.')");
+			script.println("alert('빈칸 없이 입력해주세요.')");
 			script.println("history.back()");
 			script.println("</script>");
 		} else{
