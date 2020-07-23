@@ -122,7 +122,8 @@
 																							.appendTo("#user_card_side");
 																				})
 															} else {
-																alert("해당 궁합의 사용자가 없습니다.")
+																$("#user_card_side").attr("style", "justify-content: center;font-size: -webkit-xxx-large;color: black;");
+																$("#user_card_side").text("해당 MBTI 성향의 유저가 없습니다.");
 															}
 														},
 														complete : function(

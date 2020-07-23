@@ -23,6 +23,18 @@
 mini_logo {
 	font-size: smaller;
 }
+
+.info {
+	border: 3px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border-radius: 0.4em;
+}
+
+.list-group-item1{
+    background-color: #ffeced;
+    border-radius : 10px 10px 10px 10px;
+}
 </style>
 
 <body>
@@ -41,11 +53,11 @@ mini_logo {
 	<!-- Page Content -->
 	<div class="row"
 		style="justify-content: center; text-align-last: start; background-color: antiquewhite;">
-		<div class="col-lg-9">
+		<div class="col-lg-7">
 			<p class="card-title"
 				style="justify-content: center; text-align-last: center; font-size: xx-large;">
 			</p>
-			<div class="card mb-3" style="background-color: whitesmoke;">
+			<div class="card mb-3" style="background-color: #fffcf8;">
 				<%
 					String u_id = request.getParameter("u_id");
 				User2DAO user2DAO = new User2DAO();
@@ -56,32 +68,32 @@ mini_logo {
 					<%=list.get(0).getU_name().trim()%>님의 페이지
 					<mini_logo>🏠</mini_logo>
 				</h1>
-				<div class="card-body">
-					<h5 class="card-title" style="text-align-last: center;"></h5>
-					<h6 class="card-subtitle text-muted"
-						style="text-align-last: center;">
-					</h6>
-				</div>
-				<img src="./upload/<%=list.get(0).getU_img()%>" width=512 height=384
-					style="align-self: center; margin-bottom: 50px;"></img>
+				<div class="card-body" style="align-self: center;">
+					<img src="./upload/<%=list.get(0).getU_img()%>" width=512
+						height=384 style="align-self: center; margin-bottom: 50px;"></img>
 
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item">MBTI: <%=list.get(0).getU_mbti()%>
-					</li>
-					<li class="list-group-item">지역: <%=list.get(0).getU_loc()%>
-					</li>
-					<li class="list-group-item">성별: <%=list.get(0).getU_gender()%>
-					</li>
-					<li class="list-group-item">취미: <%=list.get(0).getU_hobby()%>
-					</li>
-					<li class="list-group-item">특기: <%=list.get(0).getU_talent()%>
-					</li>
-				</ul>
-
-				<div class="card-body">
-					<a href="#" class="card-link"> 💌 instagram link </a> <a href="#"
-						class="card-link"> 🌏 facebook link </a>
+					<div class="info">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item list-group-item1">MBTI: <%=list.get(0).getU_mbti()%>
+							</li>
+							<li class="list-group-item">지역: <%=list.get(0).getU_loc()%>
+							</li>
+							<li class="list-group-item list-group-item1">성별: <%=list.get(0).getU_gender()%>
+							</li>
+							<li class="list-group-item">취미: <%=list.get(0).getU_hobby()%>
+							</li>
+							<li class="list-group-item list-group-item1">특기: <%=list.get(0).getU_talent()%>
+							</li>
+						</ul>
+					</div>
+					<div class="card-body">
+						<a href="#" class="card-link"> 💌 instagram link </a> <a href="#"
+							class="card-link"> 🌏 facebook link </a>
+					</div>
 				</div>
+
+
+
 
 				<div class="card-footer text-muted">마지막 접속일 2 days ago</div>
 			</div>
