@@ -76,7 +76,7 @@
 								<form method="post" action="updateAction.jsp">
 							<div class="form-group">
 								<input type="text" class="form-control"
-									value="<%=list.get(0).getU_id()%>" name="u_id" maxlength="20">
+									value="<%=list.get(0).getU_id()%>" name="u_id" maxlength="20" readonly>
 
 								<a style="font-size: 13px; color: #F3969A; font-weight: bold;">
 									* 아이디는 수정할 수 없습니다.</a>
