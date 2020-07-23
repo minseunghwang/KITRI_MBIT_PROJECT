@@ -38,7 +38,7 @@
 
 	<div class="container">
 
-		<div class="row" style="position: relative; top: 100px;">
+		<div class="row" style="position: relative; top: 10px;">
 			<div class="col-lg-1"></div>
 			<!-- /.col-lg-3 -->
 
@@ -77,15 +77,7 @@
 	</div>
 	<!-- /.container -->
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark"
-		style="background-color: #78C2AF !important; position: absolute; bottom: 0; width: 100%;">
-		<div class="contents">
-			<p class="m-0 text-center text-white">Copyright © KTR Website
-				2020</p>
-		</div>
-		<!-- /.contents -->
-	</footer>
+	<%@ include file="Footer.jsp"%>
 
 
 	<!-- Bootstrap core JavaScript -->

@@ -164,22 +164,13 @@
 	</div>
 	<!-- /.row -->
 
-	</div>
 
 
 
 
 	<!-- /.container -->
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark"
-		style="background-color: #78C2AF !important; position: absolute; bottom: 0; width: 100%;">
-		<div class="contents">
-			<p class="m-0 text-center text-white">Copyright © KTR Website
-				2020</p>
-		</div>
-		<!-- /.contents -->
-	</footer>
+<%@ include file="Footer.jsp"%>
 
 
 	<!-- Bootstrap core JavaScript -->

@@ -217,7 +217,6 @@
 	</div>
 	<!-- /.row -->
 
-	</div>
 	<!-- /.container -->
 
 	<%@ include file="Footer.jsp"%>

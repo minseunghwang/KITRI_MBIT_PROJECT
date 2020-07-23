@@ -144,15 +144,7 @@ mini_logo {
 
 
 
-	<!-- Footer -->
-	<footer class="py-5 bg-dark"
-		style="background-color: #78C2AF !important;">
-		<div class="contents">
-			<p class="m-0 text-center text-white">Copyright &copy; KTR
-				Website 2020</p>
-		</div>
-		<!-- /.contents -->
-	</footer>
+<%@ include file="Footer.jsp"%>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>
