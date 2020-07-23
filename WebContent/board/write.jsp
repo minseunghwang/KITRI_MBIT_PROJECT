@@ -23,7 +23,7 @@
 
 
 </head>
-<body>
+<body style="background-color: antiquewhite";>
 	<%@ include file="../Navigation.jsp"%>
 
 	<!-- Page Content -->
@@ -31,14 +31,14 @@
 		<form class="form-horizontal mt-5 mb-5" action="boardInsert.jsp"
 			method="post" onsubmit="checkForm();">
 			<div class="input-group w-100">
-				<label class="control-label mr-3">제목</label> <input
+				<label class="control-label mr-3"> 제목 </label> <input
 					class="form-control" id="title" name="title" type="text"
-					placeholder="제목을 입력하세요." maxlength="33">
+					placeholder="제목을 입력하세요." maxlength="33" style="background-color: whitesmoke;">
 			</div>
 			<div class="form-group">
-				<label class="control-label mt-3">내용</label>
+				<label class="control-label mt-3"> 내용 </label>
 				<textarea id="content" class="form-control" rows="10" name="content"
-					placeholder="내용을 입력하세요." maxlength="1333"></textarea>
+					placeholder="내용을 입력하세요." maxlength="1333" style="background-color: whitesmoke;"></textarea>
 				<input type="hidden" name="id"
 					value="<%=session.getAttribute("u_id")%>">
 			</div>
@@ -49,7 +49,16 @@
 	</div>
 	<!-- /.container -->
 
-	<%@ include file="../Footer.jsp"%>
+
+	<!-- Footer -->
+	<footer class="py-5 bg-dark"
+		style="background-color: #78C2AF !important; position: absolute; bottom: 0; width: 100%;">
+		<div class="contents">
+			<p class="m-0 text-center text-white">Copyright © KTR Website
+				2020</p>
+		</div>
+		<!-- /.contents -->
+	</footer>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>

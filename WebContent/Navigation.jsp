@@ -10,7 +10,11 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 	
 	<a class="navbar-brand" href="/login.jsp" style="padding-left:20%">MBTI MATE</a>
-
+      <%
+      	String id = (String)session.getAttribute("u_id");
+      	if(id != null && id != "") {
+      		
+   		%>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" 
   aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -27,21 +31,11 @@
       <li class="nav-item">
         <a class="nav-link" href="/mypage.jsp">회원정보</a>
       </li>
-      <%
-      	String id = (String)session.getAttribute("u_id");
-      	if(id == null || id == "") {
-   		%>
-      		
-	<%          
-      	} else { 
-      	%>
-      		<li class="nav-item">
+
+      		      		<li class="nav-item">
         	<a class="nav-link" href="/logoutAction.jsp">로그아웃</a>
       	</li>
-      <%
-      	}
-      %>
-      
+     
       <li>
       <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="친구 찾기">
@@ -51,6 +45,9 @@
     </ul>
     
   </div>
+  	<%          
+      	} 
+      	%> 
 </nav>
 
 </body>

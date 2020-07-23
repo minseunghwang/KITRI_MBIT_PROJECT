@@ -47,7 +47,7 @@ try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)
 %>
 
 </head>
-<body>
+<body style="background-color: antiquewhite";>
 	<%@ include file="../Navigation.jsp"%>
 
 
@@ -93,14 +93,14 @@ try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)
 		<br>
 		<br>
 		<ul class="nav nav-tabs">
-			<li class="nav-item"><a class="nav-link active">댓글</a></li>
+			<li class="nav-item"><a class="nav-link active" style="background-color: whitesmoke">댓글</a></li>
 		</ul>
 		<br>
 		<form class="form-inline" action="commentInsert.jsp" method="post"
 			onsubmit="checkForm();">
 			<div class="input-group w-100">
 				<input class="form-control m-2" id="comment" name="content"
-					type="text" placeholder="댓글을 입력하세요." maxlength="66"> <input
+					type="text" placeholder="댓글을 입력하세요." maxlength="66" style="background-color: whitesmoke"> <input
 					type="hidden" name="id" value="<%=session.getAttribute("u_id")%>">
 				<input type="hidden" name="b_no" value="<%=b_no%>">
 				<button class="btn btn-secondary m-2" type="submit">등록</button>
@@ -149,8 +149,15 @@ try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)
 	</div>
 	<!-- /.container -->
 
-	<%@ include file="../Footer.jsp"%>
-
+	<!-- Footer -->
+	<footer class="py-5 bg-dark"
+		style="background-color: #78C2AF !important; position: absolute; bottom: 0; width: 100%;">
+		<div class="contents">
+			<p class="m-0 text-center text-white">Copyright © KTR Website
+				2020</p>
+		</div>
+		<!-- /.contents -->
+	</footer>
 
 
 	<script type="text/javascript">
