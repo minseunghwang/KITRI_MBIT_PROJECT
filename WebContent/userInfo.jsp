@@ -33,13 +33,14 @@
 	<%@ include file="Navigation.jsp"%>
 
 	<!-- Page Content -->
-	<div class="row" style="justify-content: center; text-align-last: start;">
+	<div class="row" style="justify-content: center; text-align-last: start; background-color: antiquewhite;">
 	<div class="col-lg-9">
-	<div class="card mb-3">
+	<p class= "card-title" style="justify-content: center; text-align-last: center; font-size: xx-large;"> 　 </p>
+	<div class="card mb-3" style="background-color: whitesmoke;">
 				<%
 					String u_id = request.getParameter("u_id");
 				%>
-  <h1 class="card-header" style="text-align-last: center;"><%=u_id%>님의 페이지입니다!!</h1>
+  <h1 class="card-header" style="text-align-last: center;"> 🏠 <%=u_id%>님의 홈피 🏠 </h1>
     <div class="card-body">
     <h5 class="card-title" style="text-align-last: center;"> 
     					<%
@@ -62,8 +63,7 @@
     </h5> 
     <h6 class="card-subtitle text-muted" style="text-align-last: center;"> <%=list.get(0).getU_mbti()%>  </h6>
   </div>
-  
-  <img class="card-img-top" src="<%=list.get(0).getU_img()%>">
+  <img src="<%=list.get(0).getU_img()%>" width=512 height=384 style="align-self: center;"></img>
   
   <div class="card-body">
   	<p class="card-text">지역: <%=list.get(0).getU_loc()%> !</p>
@@ -76,8 +76,8 @@
   </ul>
   
   <div class="card-body">
-    <a href="#" class="card-link">instagram link 클릭 1번</a>
-    <a href="#" class="card-link">facebook link 클릭 2번</a>
+    <a href="#" class="card-link"> 💌 instagram link </a>
+    <a href="#" class="card-link"> 🌏 facebook link </a>
   </div>
   
   <div class="card-footer text-muted">
@@ -85,44 +85,33 @@
   </div>
 </div>
 
-<div class="card">
+<div class="card" style="background-color: whitesmoke;">
   <div class="card-body">
-    <h4 class="card-title">하단 박스입니다~~~ 제목~~</h4>
-    <h6 class="card-subtitle mb-2 text-muted">내용 1번 ㅇ아아ㅏ아아아ㅏ아!!!!@@!!@!@@!!@</h6>
-    <p class="card-text">내용 2번 구구젉절~~~~~~~~</p>
+    <h4 class="card-title"> 🌷 자기소개 🌷  </h4>
+    <h6 class="card-subtitle mb-2 text-muted"> 
     
-    <a href="#" class="card-link"> 친구신청 </a>
-    <a href="#" class="card-link"> 쪽지보내기 </a>
+    서울 사는 							
+							<%=list.get(0).getU_age()%> 살 <%=list.get(0).getU_gender()%>
+							<%=list.get(0).getU_name().trim()%>입니다.
+							 
+							</h6>
+							
+    <p class="card-text"> 취미는 <%=list.get(0).getU_hobby()%> 특기는 <%=list.get(0).getU_talent()%> 입니다. 잘부탁드립니다.</p>
+    
+    <a href="#" class="card-link"> ✔ 친구신청 </a>
+    <a href="#" class="card-link"> ✔ 쪽지보내기 </a>
   </div>
 </div>
 
-
-			<div class="col-lg-9">
-				<div id="carouselExampleIndicators" class="carousel slide my-4"
-					data-ride="carousel">
-					<div class="card-body">
-						<h4 class="card-title">
-							<img class="card-img-top" src="<%=list.get(0).getU_img()%>">
-						</h4>
-					</div>
-				</div>
-
-
-				<div class="row">
-					<div class="col-lg-4 col-md-6 mb-4">
-						<div class="card h-100"></div>
-					</div>
-				</div>
-				<!-- /.row -->
-
+      	<h6 class="card-title" style="text-align-last: center;">   </h6>
+		<p class= "card-body" style="justify-content: center; text-align-last: center;">  </p>
+		
 			</div>
 			<!-- /.col-lg-9 -->
 
 		</div>
 		<!-- /.row -->
 
-	</div>
-	<!-- /.container -->
 
 
 
