@@ -145,6 +145,8 @@
 
 	<%@ include file="sessionCheck.jsp"%>
 	<%@ include file="Navigation.jsp"%>
+	
+
 
 	<!-- Page Content -->
 	<div class="container" style="min-height: 100%; margin-top: 100px;">
@@ -192,29 +194,31 @@
 				<div style="text-align: center; margin-top: 50px; margin-bottom: 60px;">
 					<%
 						int star = 5;
-					%>
-					<h1 style="display: inline; color:#78C2AF;">
-						 <%=session.getAttribute("u_id")%></h1>
-						<h3 style="display: inline;"> 님과 MBTI궁합이 잘 맞는 친구입니다</h3>
 					
-						<h4> 궁합 별  <select name="selectBox" id="selectBox1"
-							style="margin-top: 20px" id="filterText"> </h4>
-							<option value="5" selected class="text-muted">&#9733;
-								&#9733; &#9733; &#9733; &#9733;
+						User2DAO user2DAO = new User2DAO();
+						ArrayList<User2> list = user2DAO.getUserinfo((String) session.getAttribute("u_id"));
+					%>
+
+						
+						<div class="alert alert-dismissible alert-warning">
+ 						 <h1 class="alert-heading">
+ 						<p style="color:#78C2AF !important;"><%=list.get(0).getU_name()%></p><h3>님과 MBTI궁합이 잘 맞는 친구입니다</h3>
+ 						 </h1>
+ 						</div>
+					
+						<h4> 궁합 별 &nbsp; <select name="selectBox" id="selectBox1"
+							style="margin-top: 20px" id="filterText"> 
+							<option value="5" selected class="text-muted">💛💛💛💛💛
 								<%=star = 5%></option>
-							<option value="4" class="text-muted">&#9734; &#9733;
-								&#9733; &#9733; &#9733;
+							<option value="4" class="text-muted">🤍💛💛💛💛
 								<%=star = 4%></option>
-							<option value="3" class="text-muted">&#9734; &#9734;
-								&#9733; &#9733; &#9733;
+							<option value="3" class="text-muted">🤍🤍💛💛💛
 								<%=star = 3%></option>
-							<option value="2" class="text-muted">&#9734; &#9734;
-								&#9734; &#9733; &#9733;
+							<option value="2" class="text-muted">🤍🤍🤍💛💛
 								<%=star = 2%></option>
-							<option value="1" class="text-muted">&#9734; &#9734;
-								&#9734; &#9734; &#9733;
+							<option value="1" class="text-muted">🤍🤍🤍🤍💛
 								<%=star = 1%></option>
-						</select>
+						</select> </h4>
 				</div>
 
 
