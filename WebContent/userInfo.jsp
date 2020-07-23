@@ -62,7 +62,7 @@ mini_logo {
 						style="text-align-last: center;">
 					</h6>
 				</div>
-				<img src="<%=list.get(0).getU_img()%>" width=512 height=384
+				<img src="./upload/<%=list.get(0).getU_img()%>" width=512 height=384
 					style="align-self: center; margin-bottom: 50px;"></img>
 
 				<ul class="list-group list-group-flush">
