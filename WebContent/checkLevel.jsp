@@ -11,9 +11,10 @@
 <%
 request.setCharacterEncoding("UTF-8");
 int level = Integer.parseInt(request.getParameter("mbti_level"));
+String myid = request.getParameter("myid");
 
 RelationDAO rel = new RelationDAO();
-ArrayList<User2> list2 = rel.get_RList((String) session.getAttribute("u_id"), level);
+ArrayList<User2> list2 = rel.get_RList((String) session.getAttribute("u_id"), level, myid);
 
 JSONArray series = new JSONArray();
 

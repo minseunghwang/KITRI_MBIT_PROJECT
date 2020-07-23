@@ -129,7 +129,7 @@
 
 							<div>
 								<select id="selectBox" name="u_mbti" id="u_mbti"
-									style="margin-bottom: 15px; padding: 5px; width: 300px">
+									style="margin-bottom: 15px; width:100%;">
 									<option value="">MBTI 유형 선택하기</option>
 									<option value="INTJ">INTJ</option>
 									<option value="INTP">INTP</option>

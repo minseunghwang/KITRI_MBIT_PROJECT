@@ -51,6 +51,7 @@
 
 	User2DAO user2DAO = new User2DAO();
 	ArrayList<User2> list = user2DAO.getUserinfo((String) session.getAttribute("u_id"));
+	
 	%>
 
 
@@ -71,7 +72,7 @@
 							<img src="./upload/<%=list.get(0).getU_img()%>" style="margin-top:10px;" width=150 height=150></img>
 							
 								<form action="upload.jsp" method="post" enctype="multipart/form-data">
-								<span class="btn btn-default" style="margin-left:95px;"><input type="file" name="file" style="color:antiquewhite;"></span>
+								<span class="btn btn-default" style="margin-left:27%;"><input type="file" name="file" style="color:antiquewhite;"></span>
 								<input type="submit" class="btn btn-outline-secondary form-control" value="사진 등록" style="margin-bottom:30px;">
 								</form>
 					
@@ -97,12 +98,12 @@
 							<div class="form-group" style="text-align: center;">
 								<div class="btn-group" data-toggle="buttons">
 									<label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" autocomplete="off" value="남자"
-										<%if(list.get(0).getU_gender().equals("남자"))out.print("checked");%>>남자
+										name="u_gender" value="남자"
+										<%if(list.get(0).getU_gender().equals("남자"))System.out.print("checked");%>> 남자
 									</label> 
 									<label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" autocomplete="off"value="여자" 
-										<%if(list.get(0).getU_gender().equals("여자"))out.print("checked");%>>여자
+										name="u_gender" value="여자" 
+										<%if(list.get(0).getU_gender().equals("여자"))System.out.print("checked");%>> 여자
 									</label>
 								</div>
 							</div>
@@ -127,7 +128,7 @@
 
 							<div>
 								<select id="selectBox" name="u_mbti"
-									style="margin-bottom: 15px; padding: 5px; width: 300px">
+									style="margin-bottom: 15px; width:100%;">
 									<option value="<%=list.get(0).getU_mbti()%>">나의 유형 :<%=list.get(0).getU_mbti()%>
 									</option>
 									<option value="INTJ">INTJ</option>
