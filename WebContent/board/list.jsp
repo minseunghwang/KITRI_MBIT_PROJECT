@@ -25,12 +25,12 @@
 <link href="../Resource/css/bootstrap.css" rel="stylesheet">
 
 </head>
-<body>
+<body style="background-color: antiquewhite";>
 	<%@ include file="../Navigation.jsp"%>
 	<!-- Page Content -->
 	<div class="container">
 		<h2 class="page-title my-4">
-			자유 게시판
+			✏️ 자유 게시판
 			</h3>
 			<div align="right">
 				<button class="btn btn-secondary" type="button"
@@ -39,11 +39,11 @@
 			<table class="table table-hover table-sm mt-3 mb-5">
 				<thead class="thead-light">
 					<tr>
-						<th class="text-center">No.</th>
-						<th class="text-center">제목</th>
-						<th class="text-center">작성자</th>
-						<th class="text-center">작성일</th>
-						<th class="text-center">조회수</th>
+						<th class="text-center" style="background-color: antiquewhite;">No.</th>
+						<th class="text-center" style="background-color: antiquewhite;">제목</th>
+						<th class="text-center" style="background-color: antiquewhite;">작성자</th>
+						<th class="text-center" style="background-color: antiquewhite;">작성일</th>
+						<th class="text-center" style="background-color: antiquewhite;">조회수</th>
 					</tr>
 				</thead>
 				<tbody>
