@@ -39,13 +39,7 @@
       		<li class="nav-item">
         	<a class="nav-link" href="/logoutAction.jsp">로그아웃</a>
       	</li>
-     
-      <li>
-      <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="친구 찾기">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">검색</button>
-    </form>
-    </li>
+
     </ul>
     
   </div>
