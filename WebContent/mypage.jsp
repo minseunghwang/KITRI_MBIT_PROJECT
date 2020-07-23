@@ -63,12 +63,12 @@
 
 					<div class="card-body col-lg-5">
 
-							<h3 style="text-align: center;">회원정보 수정</h3>
+							<h3 style="text-align: center;">📝 회원정보 </h3>
 							
-							<img src="./upload/<%=list.get(0).getU_img()%>" style="margin-top:30px;" width=150 height=150></img>
+							<img src="./upload/<%=list.get(0).getU_img()%>" style="margin-top:10px;" width=150 height=150></img>
 							
 								<form action="upload.jsp" method="post" enctype="multipart/form-data">
-								<span class="btn btn-default" style="margin-left:95px;"><input type="file" name="file"></span>
+								<span class="btn btn-default" style="margin-left:95px;"><input type="file" name="file" style="color:antiquewhite;"></span>
 								<input type="submit" class="btn btn-outline-secondary form-control" value="사진 등록" style="margin-bottom:30px;">
 								</form>
 					
@@ -83,7 +83,7 @@
 							</div>
 							<div class="form-group">
 								<input type="password" class="form-control"
-									placeholder="비밀번호 : <%=list.get(0).getU_pw()%>" name="u_pw"
+									placeholder="비밀번호" value="<%=list.get(0).getU_pw()%>" name="u_pw"
 									maxlength="20">
 							</div>
 							<div class="form-group">
@@ -94,13 +94,12 @@
 							<div class="form-group" style="text-align: center;">
 								<div class="btn-group" data-toggle="buttons">
 									<label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" autocomplete="on" value="남자"
-										<%if (list.get(0).getU_gender().equals("남자"))
-										System.out.print("checked");%>>남자
-									</label> <label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" value="여자"
-										<%if (list.get(0).getU_gender().equals("여자"))
-										System.out.print("checked");%>>여자
+										name="u_gender" autocomplete="off" value="남자"
+										<%if(list.get(0).getU_gender().equals("남자"))out.print("checked");%>>남자
+									</label> 
+									<label class="btn btn-secondary"> <input type="radio"
+										name="u_gender" autocomplete="off"value="여자" 
+										<%if(list.get(0).getU_gender().equals("여자"))out.print("checked");%>>여자
 									</label>
 								</div>
 							</div>
