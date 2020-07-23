@@ -29,16 +29,17 @@ public class RelationDAO {
 		}
 	}
 
-	public ArrayList<User2> get_RList(String mtype, int star) {
+	public ArrayList<User2> get_RList(String mtype, int star, String myid) {
 		String sql = "select u_no, u_id, u_pw, u_name, u_gender, u_age, u_loc, u_hobby, u_talent, u_mbti, u_like, UTL_RAW.CAST_TO_VARCHAR2(u_img) from user_info where u_mbti in\r\n" + 
 				"(select r_type2\r\n" + 
 				"from relation \r\n" + 
-				"where r_type1 = (select u_mbti from user_info where u_id = ?) and r_level = ? )";
+				"where r_type1 = (select u_mbti from user_info where u_id = ?) and r_level = ? ) and u_id != ?";
 		ArrayList<User2> list = new ArrayList<User2>();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mtype);
 			pstmt.setInt(2, star);
+			pstmt.setString(3, myid);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				User2 user2 = new User2();

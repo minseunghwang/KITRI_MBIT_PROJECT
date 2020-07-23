@@ -25,14 +25,15 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	function calluserinfo() {
-
+		var myid =  "<%= session.getAttribute("u_id") %>"
 		var mbti_level = $("#selectBox1 option:selected").val();
 		$
 				.ajax({
 					type : "POST",
 					url : "checkLevel.jsp",
 					data : {
-						mbti_level : mbti_level
+						mbti_level : mbti_level,
+						myid : myid
 					},
 					dataType : "json",
 					// 통신이 완료되면 호출되는 함수
@@ -99,7 +100,6 @@
 
 	<%@ include file="sessionCheck.jsp"%>
 	<%@ include file="Navigation.jsp"%>
-
 
 
 	<!-- Page Content -->
