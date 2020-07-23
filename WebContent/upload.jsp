@@ -93,7 +93,6 @@ script.println("alert('프로필 사진이 등록되었습니다.')");
 script.println("location.href = 'mypage.jsp'");
 script.println("</script>");
 
-
 %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

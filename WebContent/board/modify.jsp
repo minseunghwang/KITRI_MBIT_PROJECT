@@ -42,7 +42,7 @@
 %>
 
 </head>
-<body>
+<body style="background-color: antiquewhite";>
 	<%@ include file="../Navigation.jsp"%>
 	<!-- Page Content -->
 	<div class="container">		
@@ -50,14 +50,15 @@
 	while(rs.next()) 
 	{
 	%>
-		<form class="form-horizonta mt-5 mb-5" action="modifyUpdate.jsp" method="post" onsubmit="checkForm();">
+		<form class="form-horizonta mt-5 mb-5" action="modifyUpdate.jsp" 
+			method="post" onsubmit="checkForm();">
 			<div class="input-group w-100">
-				<label class="control-label">제목</label> 
-				<input class="form-control"	id="title" name="title" type="text" placeholder="제목을 입력하세요" value="<%=rs.getString("b_title")%>" maxlength="33">
+				<label class="control-label mr-3"> 제목 </label> 
+				<input class="form-control"	id="title" name="title" type="text" placeholder="제목을 입력하세요" style="background-color: whitesmoke;" value="<%=rs.getString("b_title")%>" maxlength="33">
 			</div>
 			<div class="form-group">
-				<label class="control-label mt-3">내용</label>
-				<textarea id = "content" class="form-control" rows="10" name="content" placeholder="내용을 입력하세요" maxlength="1333"><%=rs.getString("b_content")%></textarea>
+				<label class="control-label mt-3"> 내용 </label>
+				<textarea id = "content" class="form-control" rows="10" name="content" placeholder="내용을 입력하세요" style="background-color: whitesmoke;" maxlength="1333"><%=rs.getString("b_content")%></textarea>
 				<input type="hidden" name="id" value="<%=session.getAttribute("u_id") %>">
 				<input type="hidden" name="b_no" value="<%=b_no %>">
 			</div>
@@ -75,7 +76,15 @@
 	</div>
 	<!-- /.container -->
 
-	<%@ include file="../Footer.jsp"%>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark"
+		style="background-color: #78C2AF !important; position: absolute; bottom: 0; width: 100%;">
+		<div class="contents">
+			<p class="m-0 text-center text-white">Copyright © KTR Website
+				2020</p>
+		</div>
+		<!-- /.contents -->
+	</footer>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="./Resource/jquery/jquery.min.js"></script>

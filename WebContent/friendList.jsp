@@ -204,6 +204,7 @@
 					</a>
 				</div>
 
+
 				<div style="text-align: center; margin-top: 50px; margin-bottom: 60px;">
 					<%
 						int star = 5;
@@ -252,7 +253,7 @@
 									<p class="card-text" id="utalent"></p>
 								</div>
 							</div>
-							<div class="card-footer">
+							<div class="card-footer" style="padding-left:30px;">
 								<div style="float: left" id="umbti"></div>
 							</div>
 						</div>
