@@ -149,7 +149,7 @@
 
 
 	<!-- Page Content -->
-	<div class="container" style="min-height: 100%; margin-top: 100px;">
+	<div class="container" style="margin-top: 10px;">
 		<div class="row">
 			<!-- /.col-lg-3 -->
 			<div class="col-lg-1"></div>
@@ -161,23 +161,36 @@
 							class="active"></li>
 						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
 					</ol>
 					<div class="carousel-inner" role="listbox"
 						style="text-align: -webkit-center;">
 						<div class="carousel-item active">
 							<img class="d-block img-fluid"
-								src="https://www.efnews.co.kr/news/photo/201912/82572_53524_499.jpg"
-								style="max-width: 750px; height: 440px;" alt="First slide">
+								src="http://www.visualdive.com/wp-content/uploads/2020/05/1-31-819x1024.jpg"
+								style="max-width: 750px; height: 400px;" alt="First slide">
 						</div>
 						<div class="carousel-item">
 							<img class="d-block img-fluid"
-								src="https://yanolja.in/wp-content/uploads/2018/07/%EC%B2%A8%EB%B6%801-%EC%B4%88%ED%8A%B9%EA%B0%80-%EC%95%BC%EB%86%80%EC%9E%90-%EA%B4%91%EA%B3%A0-2%ED%83%84-%EC%98%81%EC%83%81-%EC%BA%A1%EC%B2%98-%EC%82%AC%EC%A7%84-01.jpg"
-								style="max-width: 750px; height: 440px;" alt="Second slide">
+								src="https://post-phinf.pstatic.net/MjAyMDA1MjBfMTc1/MDAxNTg5OTY3MTIyMjY4.WO_zOqPdRcOum3qZ3pXQIhErHTiYjX2eUdRAMZEOLpIg.r-xhOrKIKE7duK6_TmsLQklO_j-708b3J29yFlXaA7Ag.JPEG/10.jpg?type=w1200"
+								style="max-width: 750px; height: 400px;" alt="Third slide">
 						</div>
 						<div class="carousel-item">
 							<img class="d-block img-fluid"
-								src="https://file.mk.co.kr/meet/neds/2020/04/image_readtop_2020_447843_15882129734183157.jpg"
-								style="max-width: 750px; height: 440px;" alt="Third slide">
+								src="https://post-phinf.pstatic.net/MjAyMDA1MjBfMjMz/MDAxNTg5OTY3MTIwNDk2.SdhJhkSPVuO-OwQdUo_7yoG06c0N70H_zfUuID3R828g.dlbyXaIV0V8JAro-R0cNPW_eVXOROG-bPik58GS9w28g.JPEG/5.jpg?type=w1200"
+								style="max-width: 750px; height: 400px;" alt="Second slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block img-fluid"
+								src="https://post-phinf.pstatic.net/MjAyMDA1MjBfMjUz/MDAxNTg5OTY3MTE5NzEw.VbNZwMPkTQYftw9JyclG_cmJ_FZm9LkVkdhgQHauE68g.nwrBqfz4_X30s9ATq0fDBfPghs05LDHvgZkaj4z4LM0g.JPEG/3.jpg?type=w1200"
+								style="max-width: 750px; height: 400px;" alt="Third slide">
+						</div>
+
+						<div class="carousel-item">
+							<img class="d-block img-fluid"
+								src="https://post-phinf.pstatic.net/MjAyMDA1MjBfNTcg/MDAxNTg5OTY3MTIxNTAz.3YyATVvTICHetrWBDsfdmpxeggiXh6YL-qDtsiWRqtYg.xfc_p0xQJBUY9M0rsGtPNTKsTbLx4arBKvysAFBmPMgg.JPEG/8.jpg?type=w1200"
+								style="max-width: 750px; height: 400px;" alt="Third slide">
 						</div>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators"
@@ -201,22 +214,22 @@
 
 						
 						<div class="alert alert-dismissible alert-warning">
- 						 <h1 class="alert-heading">
- 						<p style="color:#78C2AF !important;"><%=list.get(0).getU_name()%></p><h3>님과 MBTI궁합이 잘 맞는 친구입니다</h3>
- 						 </h1>
+ 						 
+ 						<h2 class="alert-heading"><strong style="color:#343a40;"><%=list.get(0).getU_name()%> &nbsp;</strong>님의</h2> 
+ 						<h2 class="alert-heading">MBTI 친구 추천 리스트 </h2>
  						</div>
 					
 						<h4> 궁합 별 &nbsp; <select name="selectBox" id="selectBox1"
 							style="margin-top: 20px" id="filterText"> 
-							<option value="5" selected class="text-muted">💛💛💛💛💛
+							<option value="5" selected class="text-muted">⭐⭐⭐⭐⭐
 								<%=star = 5%></option>
-							<option value="4" class="text-muted">🤍💛💛💛💛
+							<option value="4" class="text-muted">⭐⭐⭐⭐☆
 								<%=star = 4%></option>
-							<option value="3" class="text-muted">🤍🤍💛💛💛
+							<option value="3" class="text-muted">⭐⭐⭐☆☆
 								<%=star = 3%></option>
-							<option value="2" class="text-muted">🤍🤍🤍💛💛
+							<option value="2" class="text-muted">⭐⭐☆☆☆
 								<%=star = 2%></option>
-							<option value="1" class="text-muted">🤍🤍🤍🤍💛
+							<option value="1" class="text-muted">⭐☆☆☆☆
 								<%=star = 1%></option>
 						</select> </h4>
 				</div>
