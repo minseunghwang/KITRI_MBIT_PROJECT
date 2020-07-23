@@ -97,14 +97,17 @@
 							</div>
 							<div class="form-group" style="text-align: center;">
 								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" value="남자"
-										<%if(list.get(0).getU_gender().equals("남자"))System.out.print("checked");%>> 남자
-									</label> 
-									<label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" value="여자" 
-										<%if(list.get(0).getU_gender().equals("여자"))System.out.print("checked");%>> 여자
-									</label>
+										<%if("남자".equals(list.get(0).getU_gender().trim())) { %>
+											<label class="btn btn-secondary"> <input type="radio"
+													name="u_gender" value="남자" checked>남자</label>
+													<label class="btn btn-secondary"> <input type="radio"
+													name="u_gender" value="여자">여자</label>
+										<%} else {%>
+										<label class="btn btn-secondary"> <input type="radio"
+													name="u_gender" value="남자">남자</label>
+											<label class="btn btn-secondary"> <input type="radio"
+													name="u_gender" value="여자" checked>여자</label>
+									<%} %>
 								</div>
 							</div>
 							<div class="form-group">
