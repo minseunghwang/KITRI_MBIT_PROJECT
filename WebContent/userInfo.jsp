@@ -90,8 +90,8 @@ mini_logo {
 						</ul>
 					</div>
 					<div class="card-body" style="padding-left: 5px;" >
-						<a href="#" class="card-link" style="font-family: initial;"><img src="./logo/instargram.jpg" style="height:20px"> instagram link </a>
-						<a href="#"	class="card-link" style="font-family: initial;"><img src="./logo/facebook.jpg" style="height:20px"> facebook link </a>
+						<a href="https://www.instagram.com/" class="card-link" style="font-family: initial;"><img src="./logo/instargram.jpg" style="height:20px"> instagram link </a>
+						<a href="https://www.facebook.com//" class="card-link" style="font-family: initial;"><img src="./logo/facebook.jpg" style="height:20px"> facebook link </a>
 					</div>
 				</div>
 
