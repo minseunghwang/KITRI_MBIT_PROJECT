@@ -167,30 +167,14 @@
 					<div class="carousel-inner" role="listbox"
 						style="text-align: -webkit-center;">
 						<div class="carousel-item active">
-							<img class="d-block img-fluid"
-								src="http://www.visualdive.com/wp-content/uploads/2020/05/1-31-819x1024.jpg"
-								style="max-width: 750px; height: 400px;" alt="First slide">
+							<img src="logo\img0.png" style="max-width: 750px; height: 440px;" alt="Second slide">
+							
 						</div>
 						<div class="carousel-item">
-							<img class="d-block img-fluid"
-								src="https://post-phinf.pstatic.net/MjAyMDA1MjBfMTc1/MDAxNTg5OTY3MTIyMjY4.WO_zOqPdRcOum3qZ3pXQIhErHTiYjX2eUdRAMZEOLpIg.r-xhOrKIKE7duK6_TmsLQklO_j-708b3J29yFlXaA7Ag.JPEG/10.jpg?type=w1200"
-								style="max-width: 750px; height: 400px;" alt="Third slide">
+							<img src="logo\img01.png" style="max-width: 750px; height: 440px;" alt="Second slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block img-fluid"
-								src="https://post-phinf.pstatic.net/MjAyMDA1MjBfMjMz/MDAxNTg5OTY3MTIwNDk2.SdhJhkSPVuO-OwQdUo_7yoG06c0N70H_zfUuID3R828g.dlbyXaIV0V8JAro-R0cNPW_eVXOROG-bPik58GS9w28g.JPEG/5.jpg?type=w1200"
-								style="max-width: 750px; height: 400px;" alt="Second slide">
-						</div>
-						<div class="carousel-item">
-							<img class="d-block img-fluid"
-								src="https://post-phinf.pstatic.net/MjAyMDA1MjBfMjUz/MDAxNTg5OTY3MTE5NzEw.VbNZwMPkTQYftw9JyclG_cmJ_FZm9LkVkdhgQHauE68g.nwrBqfz4_X30s9ATq0fDBfPghs05LDHvgZkaj4z4LM0g.JPEG/3.jpg?type=w1200"
-								style="max-width: 750px; height: 400px;" alt="Third slide">
-						</div>
-
-						<div class="carousel-item">
-							<img class="d-block img-fluid"
-								src="https://post-phinf.pstatic.net/MjAyMDA1MjBfNTcg/MDAxNTg5OTY3MTIxNTAz.3YyATVvTICHetrWBDsfdmpxeggiXh6YL-qDtsiWRqtYg.xfc_p0xQJBUY9M0rsGtPNTKsTbLx4arBKvysAFBmPMgg.JPEG/8.jpg?type=w1200"
-								style="max-width: 750px; height: 400px;" alt="Third slide">
+						<img src="logo\img02.png" style="max-width: 750px; height: 440px;" alt="Second slide">
 						</div>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators"
