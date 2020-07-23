@@ -35,20 +35,20 @@
 	<%@ include file="Navigation.jsp"%>
 
 	<!-- Page Content -->
+
 	<div class="container">
+
 		<div class="row" style="position: relative; top: 100px;">
 			<div class="col-lg-1"></div>
 			<!-- /.col-lg-3 -->
 
 			<div class="col-lg-9" style="text-align: center";>
+
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel" style="text-align: -webkit-center;">
-
+					<img src="logo\mbti_logo3.png" style="margin-bottom: 30px;">
 					<div class="card-body col-lg-5">
 						<form method="post" action="loginAction.jsp">
-							<h3
-								style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
-								🙋🏻‍♀️ 환영합니다 🙋🏻‍♀️</h3>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="아이디"
 									name="u_id" maxlength="20">
@@ -77,8 +77,8 @@
 	</div>
 	<!-- /.container -->
 
-		<!-- Footer -->
-	<footer class="py-5 bg-dark"	
+	<!-- Footer -->
+	<footer class="py-5 bg-dark"
 		style="background-color: #78C2AF !important; position: absolute; bottom: 0; width: 100%;">
 		<div class="contents">
 			<p class="m-0 text-center text-white">Copyright © KTR Website
