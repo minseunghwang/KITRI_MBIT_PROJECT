@@ -116,7 +116,7 @@
 																									"#uimg")
 																							.attr(
 																									"src",
-																									this["u_img"]);
+																									"./upload/"+this["u_img"]);
 
 																					copy
 																							.appendTo("#user_card_side");
@@ -189,18 +189,16 @@
 					</a>
 				</div>
 
-				<div
-					style="text-align: center; margin-top: 50px; margin-bottom: 60px;">
+				<div style="text-align: center; margin-top: 50px; margin-bottom: 60px;">
 					<%
 						int star = 5;
 					%>
-					<h1 style="display: inline">
-						<%=session.getAttribute("u_id")%>
-						<h3 style="display: inline">님 성향의 MBTI 궁합입니다.</h3>
-					</h1>
-					<p>
-						궁합도 : <select name="selectBox" id="selectBox1"
-							style="margin-top: 20px" id="filterText">
+					<h1 style="display: inline; color:#78C2AF;">
+						 <%=session.getAttribute("u_id")%></h1>
+						<h3 style="display: inline;"> 님과 MBTI궁합이 잘 맞는 친구입니다</h3>
+					
+						<h4> 궁합 별  <select name="selectBox" id="selectBox1"
+							style="margin-top: 20px" id="filterText"> </h4>
 							<option value="5" selected class="text-muted">&#9733;
 								&#9733; &#9733; &#9733; &#9733;
 								<%=star = 5%></option>
