@@ -23,11 +23,42 @@
 <!-- Custom styles for this template -->
 <link href="./Resource/css/custom.css" rel="stylesheet">
 
-
-<script language="javascript">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
 	var selectBox = document.getElementById("selectBox");
 	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 	alert(selectedValue);
+
+	function check_input() {
+		// 사용자가 입력한 데이터를 추출한다.
+		var user_name = $("#u_name").val()
+		var user_id = $("#u_id").val()
+		var user_pw = $("#u_id").val()
+		var user_age = $("#u_age").val()
+
+		if (user_id.length == 0) {
+			alert('아이디를 입력해 주세요')
+			$("#user_id").focus()
+			return false
+		}
+		if (user_pw.length == 0) {
+			alert('비밀번호를 입력해 주세요')
+			$("#user_pw").focus()
+			return false
+		}
+		if (user_name.length == 0) {
+			alert("이름을 입력해 주세요")
+			$("#user_name").focus()
+			return false
+		}
+		if (user_age.length == 0) {
+			alert('나이를 입력해 주세요')
+			$("#user_age").focus()
+			return false
+		}
+
+		return True
+	}
 </script>
 
 
@@ -47,38 +78,40 @@
 
 					<div class="card-body col-lg-5">
 
-						
 
-							<h3 style="text-align: center;">회원가입</h3>
-						
 
-                             <form method="post" action="joinAction.jsp">
+						<h3 style="text-align: center;">회원가입</h3>
+
+
+						<form method="post" action="joinAction.jsp"
+							onsubmit="return check_input()">
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="아이디 : 3~12자 영문 소문자" name="u_id" maxlength="20">
+									placeholder="아이디 : 3~12자 영문 소문자" id="u_id" name="u_id"
+									maxlength="20">
 							</div>
 
 							<div class="form-group">
 								<input type="password" class="form-control"
-									placeholder="비밀번호 : 3~12자 숫자" name="u_pw" maxlength="20">
+									placeholder="비밀번호 : 3~12자 숫자" id="u_pw" name="u_pw"
+									maxlength="20">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="이름"
-									name="u_name" maxlength="20">
+									name="u_name" id="u_name" maxlength="20">
 							</div>
 
 							<div class="form-group" style="text-align: center;">
 								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" autocomplete="off" value="남자">남자
-									</label> <label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" autocomplete="off" value="여자">여자
-									</label>
+									<label class="btn btn-secondary">
+										<input type="radio"	name="u_gender" autocomplete="off" value="남자">남자</label>
+									<label class="btn btn-secondary">
+										<input type="radio" name="u_gender" autocomplete="off" value="여자">여자</label>
 								</div>
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="나이"
-									name="u_age" maxlength="20">
+									id="u_age" name="u_age" maxlength="20">
 							</div>
 							<div class="form-group">
 								<input type="text" class="form-control"
@@ -95,7 +128,7 @@
 							</div>
 
 							<div>
-								<select id="selectBox" name="u_mbti"
+								<select id="selectBox" name="u_mbti" id="u_mbti"
 									style="margin-bottom: 15px; padding: 5px; width: 300px">
 									<option value="">MBTI 유형 선택하기</option>
 									<option value="INTJ">INTJ</option>
@@ -117,7 +150,7 @@
 								</select>
 							</div>
 
-							 <input type="submit" class="btn btn-secondary form-control"
+							<input type="submit" class="btn btn-secondary form-control"
 								value="회원가입">
 						</form>
 					</div>
