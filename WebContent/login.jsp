@@ -46,7 +46,11 @@
 
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel" style="text-align: -webkit-center;">
+<<<<<<< HEAD
 					<img src="logo\mbti_logo3.png" width=160 height=160 style="margin-bottom: 30px;">
+=======
+					<img src="logo\mbti_logo3.png" height=180px style="margin-bottom: 1px;">
+>>>>>>> branch 'master' of https://github.com/minseunghwang/KITRI_MBIT_PROJECT.git
 					<div class="card-body col-lg-5">
 						<form method="post" action="loginAction.jsp">
 							<div class="form-group">
