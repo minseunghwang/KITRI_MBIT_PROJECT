@@ -36,7 +36,7 @@ File file = null;
 
 try {
 	// request,파일저장경로,용량,인코딩타입,중복파일명에 대한 기본 정책 
-	multi = new MultipartRequest(request, uploadPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
+	multi = new MultipartRequest(request,uploadPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
 
 	// 전송한 전체 파일이름들을 가져옴 
 	//Enumeration files = multi.getFileNames(); 
